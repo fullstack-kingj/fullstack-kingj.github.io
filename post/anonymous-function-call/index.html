@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>匿名函数自调用(IIFE) | KingJ&#39;s Blog</title>
+<meta name="description" content="追梦若冷，就用希望取暖。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://fullstack-kingj.github.io/favicon.ico?v=1578447252160">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://fullstack-kingj.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fullstack-kingj.github.io">
+        <img src="https://fullstack-kingj.github.io/images/avatar.png?v=1578447252160" class="site-logo">
+        <h1 class="site-title">KingJ&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      追梦若冷，就用希望取暖。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://fullstack-kingj.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">匿名函数自调用(IIFE)</h2>
+            <div class="post-date">2020-01-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://fullstack-kingj.github.io/post-images/anonymous-function-call.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <h2 id="什么是匿名函数">什么是匿名函数</h2>
+<p>Javascript中定义函数的方式有多种，函数直接量就是其中一种。如var fun = function(){},这里function如果不赋值给fun那么它就是一个匿名函数。好，看看匿名函数的如何被调用。</p>
+<!--more-->
+<h2 id="调用方式">调用方式</h2>
+<h3 id="调用函数得到返回值-强制运算符使函数调用执行">调用函数，得到返回值。强制运算符使函数调用执行</h3>
+<pre><code class="language-javascript">(function(x,y){
+    alert(x+y);
+    return x+y;
+}(3,4));
+</code></pre>
+<h3 id="调用函数得到返回值-强制函数直接量执行再返回一个引用引用再去调用执行">调用函数，得到返回值。强制函数直接量执行再返回一个引用，引用再去调用执行</h3>
+<pre><code class="language-javascript">(function(x,y){
+    alert(x+y);
+    return x+y;
+})(3,4);
+</code></pre>
+<p>这种方式也是很多库爱用的调用方式，如<a href="http://jquery.com" title="jquery官网">jQuery</a>，<a href="http://mootools.net/" title="Mootools官网">Mootools</a>。</p>
+<h3 id="使用void">使用void</h3>
+<pre><code class="language-javascript">void function(x) {
+      x = x-1;
+      alert(x);
+}(9);   
+</code></pre>
+<h3 id="使用-运算符">使用-/+运算符</h3>
+<pre><code class="language-javascript">-function(x,y){
+    alert(x+y);
+    return x+y;
+}(3,4);
+
++function(x,y){
+    alert(x+y);
+    return x+y;
+}(3,4);
+
+--function(x,y){
+    alert(x+y);
+    return x+y;
+}(3,4);
+
+++function(x,y){
+    alert(x+y);
+    return x+y;
+}(3,4);
+</code></pre>
+<h3 id="使取反运算符~">使取反运算符(~)</h3>
+<pre><code class="language-javascript">~function(x, y) {
+    alert(x+y);
+   return x+y;
+}(3, 4);
+</code></pre>
+<h3 id="匿名函数执行放在中括号内">匿名函数执行放在中括号内</h3>
+<pre><code class="language-javascript">[function(){
+   console.log(this) // 浏览器得控制台输出window
+}(this)]
+</code></pre>
+<h3 id="匿名函数前加typeof">匿名函数前加typeof</h3>
+<pre><code class="language-javascript">typeof function(){
+   console.log(this) // 浏览器得控制台输出window
+}(this)
+</code></pre>
+<h3 id="匿名函数前加delete">匿名函数前加delete</h3>
+<pre><code class="language-javascript">delete function(){
+   console.log(this) // 浏览器得控制台输出window
+}(this)   
+</code></pre>
+<h3 id="匿名函数前加void">匿名函数前加void</h3>
+<pre><code class="language-javascript">void function(){
+   console.log(this) // 浏览器得控制台输出window
+}(this)
+</code></pre>
+<h3 id="使用new方式传参数">使用new方式，传参数</h3>
+<pre><code class="language-javascript">new function(win){
+   console.log(win) // window
+}(this)
+</code></pre>
+<h3 id="使用new不传参数">使用new，不传参数</h3>
+<pre><code class="language-javascript">new function(){
+    console.log(this) // 这里的this就不是window了
+}  
+</code></pre>
+<h3 id="逗号运算符">逗号运算符</h3>
+<pre><code class="language-javascript">,function(){
+    console.log(this) // window
+}();
+</code></pre>
+<h3 id="按位异或运算符">按位异或运算符</h3>
+<pre><code class="language-javascript">^function(){
+    console.log(this) // window
+}();
+</code></pre>
+<h3 id="比较运算符">比较运算符</h3>
+<pre><code class="language-javascript">&gt;function(){
+    console.log(this) // window
+}();
+</code></pre>
+<blockquote>
+<p>**说明：**本文摘自<a href="http://segmentfault.com/a/1190000002435410">http://segmentfault.com/a/1190000002435410</a></p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://fullstack-kingj.github.io/tag/function" class="tag">
+                    Function
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fullstack-kingj.github.io/post/ajax-getting-started">
+                  <h3 class="post-title">
+                    一文搞定 Ajax 入门
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'fa032b9b126364a5ad35',
+        clientSecret: 'b740648218c7bed4480c9a863bfef2c99461be19',
+        repo: 'https://github.com/fullstack-kingj/fullstack-kingj.github.io.git',
+        owner: 'fullstack-kingj',
+        admin: ['fullstack-kingj'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
