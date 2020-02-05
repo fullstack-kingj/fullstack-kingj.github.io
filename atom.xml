@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fullstack-kingj.github.io</id>
-    <title>KingJ&apos;s Blog</title>
-    <updated>2020-01-08T06:57:00.436Z</updated>
+    <title>不想成熟的大叔</title>
+    <updated>2020-02-05T01:01:04.274Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fullstack-kingj.github.io"/>
     <link rel="self" href="https://fullstack-kingj.github.io/atom.xml"/>
     <subtitle>追梦若冷，就用希望取暖。</subtitle>
     <logo>https://fullstack-kingj.github.io/images/avatar.png</logo>
     <icon>https://fullstack-kingj.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, KingJ&apos;s Blog</rights>
+    <rights>All rights reserved 2020, 不想成熟的大叔</rights>
     <entry>
         <title type="html"><![CDATA[匿名函数自调用(IIFE)]]></title>
         <id>https://fullstack-kingj.github.io/post/anonymous-function-call</id>
