@@ -399,13 +399,15 @@ a {
   color: #212529;
 }
 .post-item .left .post-date {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 300;
   padding: 24px 0;
   color: #adb5bd;
 }
 .post-item .left .post-abstract {
-  line-height: 24px;
-  font-size: 18px;
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 200;
   color: #868e96;
 }
 .post-item .right {
@@ -486,7 +488,8 @@ a {
 .post-detail .post-content p {
   line-height: 1.725;
   margin-bottom: 24px;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 300;
   color: #495057;
 }
 .post-detail .post-content p code {
@@ -555,6 +558,8 @@ a {
   padding-left: 24px;
   line-height: 1.725;
   margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 300;
 }
 .post-detail .post-content strong {
   font-weight: bolder;
