@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" >
 
 <title>匿名函数自调用(IIFE) | 不想成熟的大叔</title>
 <meta name="description" content="追梦若冷，就用希望取暖。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/favicon.ico?v=1601875032665">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/favicon.ico">
 <link rel="stylesheet" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/styles/main.css">
 
 
@@ -23,16 +19,15 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
-</head>
+  </head>
+  <body>
+    <div id="app" class="main">
 
-<body>
-  <div id="app" class="main">
-
-    <div class="sidebar" :class="{ 'full-height': menuVisible }">
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com">
-        <img src="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/images/avatar.png?v=1601875032665" class="site-logo">
+        <img src="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/images/avatar.png" class="site-logo">
         <h1 class="site-title">不想成熟的大叔</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -68,48 +63,27 @@
     </div>
   </div>
   <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-          <a class="social-link" href="https://github.com/fullstack-kingj" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
-      
-        
-      
-        
-      
-        
-          <a class="social-link" href="https://www.zhihu.com/people/jinyunlong" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
-      
-        
-      
-    </div>
     <div class="site-description">
       追梦若冷，就用希望取暖。
     </div>
     <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/atom.xml" target="_blank">RSS</a>
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
     </div>
   </div>
 </div>
 
 
-    <div class="main-container">
-      <div class="content-container" data-aos="fade-up">
-        <div class="post-detail">
-          <h2 class="post-title">匿名函数自调用(IIFE)</h2>
-          <div class="post-date">2020-01-08</div>
-          
-          <div class="feature-container" style="background-image: url('https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post-images/anonymous-function-call.jpg')">
-          </div>
-          
-          <div class="post-content">
-            <p>JavaScript 中定义函数的方式有多种，函数直接量就是其中一种。如 <code>var fun = function(){}</code>，这里 function 如果不赋值给 fun 那么它就是一个匿名函数。好，看看匿名函数的如何被调用。</p>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">匿名函数自调用(IIFE)</h2>
+            <div class="post-date">2020-01-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post-images/anonymous-function-call.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>JavaScript 中定义函数的方式有多种，函数直接量就是其中一种。如 <code>var fun = function(){}</code>，这里 function 如果不赋值给 fun 那么它就是一个匿名函数。好，看看匿名函数的如何被调用。</p>
 <!--more-->
 <h2 id="调用方式">调用方式</h2>
 <p>调用函数，得到返回值。强制运算符使函数调用执行：</p>
@@ -207,36 +181,36 @@
 <p><strong>说明</strong>：本文摘自<a href="http://segmentfault.com/a/1190000002435410">http://segmentfault.com/a/1190000002435410</a></p>
 </blockquote>
 
-          </div>
-          
-          <div class="tag-container">
+            </div>
             
-            <a href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/tag/function/" class="tag">
-              Function
-            </a>
+              <div class="tag-container">
+                
+                  <a href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/tag/function/" class="tag">
+                    Function
+                  </a>
+                
+              </div>
             
-          </div>
-          
-          
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/css-coding-standards/">
-              <h3 class="post-title">
-                网易前端 CSS 编码规范
-              </h3>
-            </a>
-          </div>
-          
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/css-coding-standards/">
+                  <h3 class="post-title">
+                    网易前端 CSS 编码规范
+                  </h3>
+                </a>
+              </div>
+            
 
-          
+            
+
+          </div>
 
         </div>
-
       </div>
     </div>
-  </div>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">
 
@@ -256,6 +230,5 @@ var app = new Vue({
 
 
 
-</body>
-
+  </body>
 </html>

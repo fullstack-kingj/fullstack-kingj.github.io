@@ -368,9 +368,6 @@ a {
 .sidebar .bottom-container .site-description {
   padding: 16px 0;
 }
-.sidebar .bottom-container a {
-  color: #fff;
-}
 .main-container {
   margin-left: 320px;
 }
@@ -399,15 +396,13 @@ a {
   color: #212529;
 }
 .post-item .left .post-date {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 18px;
   padding: 24px 0;
   color: #adb5bd;
 }
 .post-item .left .post-abstract {
-  line-height: 26px;
-  font-size: 16px;
-  font-weight: 200;
+  line-height: 24px;
+  font-size: 18px;
   color: #868e96;
 }
 .post-item .right {
@@ -488,8 +483,7 @@ a {
 .post-detail .post-content p {
   line-height: 1.725;
   margin-bottom: 24px;
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 18px;
   color: #495057;
 }
 .post-detail .post-content p code {
@@ -558,8 +552,6 @@ a {
   padding-left: 24px;
   line-height: 1.725;
   margin-bottom: 16px;
-  font-size: 16px;
-  font-weight: 300;
 }
 .post-detail .post-content strong {
   font-weight: bolder;
@@ -625,7 +617,7 @@ a {
 @media (max-width: 800px) {
   .sidebar {
     position: relative;
-    width: 100% !important;
+    width: 100%;
     height: 80px;
     overflow: hidden;
     transition: height 0.382s ease-in-out;
@@ -695,7 +687,7 @@ a {
     font-size: 18px;
   }
   .main-container {
-    margin-left: 0 !important;
+    margin-left: 0;
   }
   .content-container {
     padding: 32px 16px;
@@ -751,13 +743,3 @@ a {
     transform: translateY(0px);
   }
 }
-.social-container .social-link {
-  color: #dee2e6;
-  font-size: 16px;
-  margin: 4px 8px;
-}
-
-      .post-item .right .feature-container {
-        border-radius: 5px;
-      }
-    
