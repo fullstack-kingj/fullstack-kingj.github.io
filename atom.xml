@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com</id>
+    <id>https://yixinyishi.github.io</id>
     <title>不想成熟的大叔</title>
-    <updated>2020-10-05T05:23:24.814Z</updated>
+    <updated>2020-10-05T05:30:20.695Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com"/>
-    <link rel="self" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/atom.xml"/>
+    <link rel="alternate" href="https://yixinyishi.github.io"/>
+    <link rel="self" href="https://yixinyishi.github.io/atom.xml"/>
     <subtitle>追梦若冷，就用希望取暖。</subtitle>
-    <logo>https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/images/avatar.png</logo>
-    <icon>https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/favicon.ico</icon>
+    <logo>https://yixinyishi.github.io/images/avatar.png</logo>
+    <icon>https://yixinyishi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 不想成熟的大叔</rights>
     <entry>
         <title type="html"><![CDATA[匿名函数自调用(IIFE)]]></title>
-        <id>https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/anonymous-function-call/</id>
-        <link href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/anonymous-function-call/">
+        <id>https://yixinyishi.github.io/post/anonymous-function-call/</id>
+        <link href="https://yixinyishi.github.io/post/anonymous-function-call/">
         </link>
         <updated>2020-01-08T01:21:52.000Z</updated>
         <summary type="html"><![CDATA[<p>JavaScript 中定义函数的方式有多种，函数直接量就是其中一种。如 <code>var fun = function(){}</code>，这里 function 如果不赋值给 fun 那么它就是一个匿名函数。好，看看匿名函数的如何被调用。</p>
@@ -23,8 +23,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[网易前端 CSS 编码规范]]></title>
-        <id>https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/css-coding-standards/</id>
-        <link href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/css-coding-standards/">
+        <id>https://yixinyishi.github.io/post/css-coding-standards/</id>
+        <link href="https://yixinyishi.github.io/post/css-coding-standards/">
         </link>
         <updated>2015-11-27T14:18:32.000Z</updated>
         <summary type="html"><![CDATA[<p>你是否常常碰到以下问题：你总是看不懂他写的代码，或者读起来很吃力；你需要改他的代码却无从下手，或总是要去问他这里是什么改了会不会影响其他代码；你和他一起开发一个产品，你总是怕代码和他有冲突或互相影响；你的代码在多次维护任务之后变得越来越臃肿，越来越难以维护。</p>
@@ -36,8 +36,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[一文搞定 Ajax 入门]]></title>
-        <id>https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/ajax-getting-started/</id>
-        <link href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post/ajax-getting-started/">
+        <id>https://yixinyishi.github.io/post/ajax-getting-started/</id>
+        <link href="https://yixinyishi.github.io/post/ajax-getting-started/">
         </link>
         <updated>2015-06-16T01:19:38.000Z</updated>
         <summary type="html"><![CDATA[<p>Ajax 的意思就是异步的 JavaScript 和 XML。简而言之，它是使用 XMLHttpRequest 对象与服务器端通信的脚本语言。它可以发送及接收各种格式的信息，包括 JSON、XML、HTML 和文本文件。Ajax 最为吸引人的就是它的“异步”特性，这意味着 Ajax 可以无需刷新页面而与服务器端进行通信。允许你根据用户事件来更新部分页面内容。</p>
