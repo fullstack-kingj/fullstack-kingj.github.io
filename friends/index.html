@@ -1,10 +1,11 @@
 <html>
+
 <head>
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>匿名函数自调用(IIFE) | 一心一世</title>
+<title>友情链接 - 一心一世</title>
 
 <link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1601879105921">
 
@@ -25,11 +26,12 @@
 
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
+
 <body>
 <div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
+        <div class="main-content">
+            <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -85,139 +87,25 @@
     </div>
 </nav>
 
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    匿名函数自调用(IIFE)
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 2020-01-08 ·
-                    </time>
-                    
-                        <a href="https://yixinyishi.github.io/tag/function/" class="post-tags">
-                            # Function
-                        </a>
-                    
+            <div class="post-container">
+                <div class="post-detail">
+                    <article>
+                        <!-- <div class="post-content-wrapper"> -->
+                            <div class="post-content">
+                                <div class="friends-desc">
+                                    
+                                </div>
+                                <h3 id="linklist">友链列表</h3>
+                                
+                                    
+                                
+                            </div>
+                        <!-- </div> -->
+                    </article>
                 </div>
-                <div class="post-content">
-                    <p>JavaScript 中定义函数的方式有多种，函数直接量就是其中一种。如 <code>var fun = function(){}</code>，这里 function 如果不赋值给 fun 那么它就是一个匿名函数。好，看看匿名函数的如何被调用。</p>
-<!--more-->
-<h2 id="调用方式">调用方式</h2>
-<p>调用函数，得到返回值。强制运算符使函数调用执行：</p>
-<pre><code class="language-javascript">(function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4));
-</code></pre>
-<p>调用函数，得到返回值。强制函数直接量执行再返回一个引用，引用再去调用执行：</p>
-<pre><code class="language-javascript">(function(x,y){
-    alert(x+y);
-    return x+y;
-})(3,4);
-</code></pre>
-<p>这种方式也是很多库爱用的调用方式，如<a href="http://jquery.com" title="jQuery官网">jQuery</a>，<a href="http://mootools.net/" title="Mootools官网">Mootools</a>。</p>
-<p>使用void：</p>
-<pre><code class="language-javascript">void function(x) {
-      x = x-1;
-      alert(x);
-}(9);   
-</code></pre>
-<p>使用-/+运算符：</p>
-<pre><code class="language-javascript">-function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
-
-+function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
-
---function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
-
-++function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
-</code></pre>
-<p>使取反运算符(~) ：</p>
-<pre><code class="language-javascript">~function(x, y) {
-    alert(x+y);
-   return x+y;
-}(3, 4);
-</code></pre>
-<p>匿名函数执行放在中括号内：</p>
-<pre><code class="language-javascript">[function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)]
-</code></pre>
-<p>匿名函数前加typeof：</p>
-<pre><code class="language-javascript">typeof function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)
-</code></pre>
-<p>匿名函数前加delete：</p>
-<pre><code class="language-javascript">delete function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)   
-</code></pre>
-<p>匿名函数前加void：</p>
-<pre><code class="language-javascript">void function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)
-</code></pre>
-<p>使用new方式，传参数：</p>
-<pre><code class="language-javascript">new function(win){
-   console.log(win) // window
-}(this)
-</code></pre>
-<p>使用new，不传参数：</p>
-<pre><code class="language-javascript">new function(){
-    console.log(this) // 这里的this就不是window了
-}  
-</code></pre>
-<p>逗号运算符：</p>
-<pre><code class="language-javascript">,function(){
-    console.log(this) // window
-}();
-</code></pre>
-<p>按位异或运算符：</p>
-<pre><code class="language-javascript">^function(){
-    console.log(this) // window
-}();
-</code></pre>
-<p>比较运算符：</p>
-<pre><code class="language-javascript">&gt;function(){
-    console.log(this) // window
-}();
-</code></pre>
-<blockquote>
-<p><strong>说明</strong>：本文摘自<a href="http://segmentfault.com/a/1190000002435410">http://segmentfault.com/a/1190000002435410</a></p>
-</blockquote>
-
-                </div>
-            </article>
-        </div>
-
-        
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://yixinyishi.github.io/post/css-coding-standards/" class="post-title gt-a-link">
-                    网易前端 CSS 编码规范
-                </a>
-            </div>
-        
-
-        
-
-        
-            
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css">
+                
+                    
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
     // md5.min.js
@@ -260,14 +148,15 @@
 
 </script>
 
-            
+                    
 
-            
-        
+                    
+                
+            </div>
 
-        
 
-        <div class="site-footer gt-c-content-color-first">
+
+            <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">一心一世界，一步一人生。</div>
     <div class="social-container">
         
@@ -297,7 +186,8 @@
   hljs.initHighlightingOnLoad()
 </script>
 
+        </div>
     </div>
-</div>
 </body>
+
 </html>
