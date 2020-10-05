@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
+
+<head>
+  <meta charset="utf-8">
 
 <title>一文搞定 Ajax 入门 | 不想成熟的大叔</title>
 <meta name="description" content="追梦若冷，就用希望取暖。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1601873435680">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/favicon.ico?v=1601874223866">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://yixinyishi.github.io/styles/main.css">
+<link rel="stylesheet" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+</head>
 
-  </head>
-  <body>
-    <div id="app" class="main">
+<body>
+  <div id="app" class="main">
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+    <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="https://yixinyishi.github.io">
-        <img src="https://yixinyishi.github.io/images/avatar.png?v=1601873435680" class="site-logo">
+      <a class="site-title-container" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com">
+        <img src="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/images/avatar.png?v=1601874223866" class="site-logo">
         <h1 class="site-title">不想成熟的大叔</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -97,23 +94,23 @@
       追梦若冷，就用希望取暖。
     </div>
     <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://yixinyishi.github.io/atom.xml" target="_blank">RSS</a>
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
 
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">一文搞定 Ajax 入门</h2>
-            <div class="post-date">2015-06-16</div>
-            
-              <div class="feature-container" style="background-image: url('https://yixinyishi.github.io/post-images/ajax-getting-started.jpg')">
-              </div>
-            
-            <div class="post-content">
-              <p>Ajax 的意思就是异步的 JavaScript 和 XML。简而言之，它是使用 XMLHttpRequest 对象与服务器端通信的脚本语言。它可以发送及接收各种格式的信息，包括 JSON、XML、HTML 和文本文件。Ajax 最为吸引人的就是它的“异步”特性，这意味着 Ajax 可以无需刷新页面而与服务器端进行通信。允许你根据用户事件来更新部分页面内容。</p>
+    <div class="main-container">
+      <div class="content-container" data-aos="fade-up">
+        <div class="post-detail">
+          <h2 class="post-title">一文搞定 Ajax 入门</h2>
+          <div class="post-date">2015-06-16</div>
+          
+          <div class="feature-container" style="background-image: url('https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/post-images/ajax-getting-started.jpg')">
+          </div>
+          
+          <div class="post-content">
+            <p>Ajax 的意思就是异步的 JavaScript 和 XML。简而言之，它是使用 XMLHttpRequest 对象与服务器端通信的脚本语言。它可以发送及接收各种格式的信息，包括 JSON、XML、HTML 和文本文件。Ajax 最为吸引人的就是它的“异步”特性，这意味着 Ajax 可以无需刷新页面而与服务器端进行通信。允许你根据用户事件来更新部分页面内容。</p>
 <!-- more -->
 <p>可以考虑的两个特性：</p>
 <ul>
@@ -336,33 +333,35 @@ alert(root_node.firstChild.data);
 翻译者：KingJ<br>
 原文地址：<a href="https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started">https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started</a></p>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://yixinyishi.github.io/tag/ajax/" class="tag">
-                    Ajax
-                  </a>
-                
-              </div>
-            
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
           </div>
+          
+          <div class="tag-container">
+            
+            <a href="https://coding-pages-bucket-3478867-7965629-1985-335359-1302088789.cos-website.ap-hongkong.myqcloud.com/tag/ajax/" class="tag">
+              Ajax
+            </a>
+            
+          </div>
+          
+          
+
+          
+          <div id="vcomments"></div>
+          <script>
+            new Valine({
+              el: '#vcomments',
+              appId: 'dPUVgDJ7SzoTDVT3QsAdJTO7-gzGzoHsz',
+              appKey: 'VaVsDkSaAKmthyWhmdnW4nCu'
+            })
+          </script>
 
         </div>
+
       </div>
     </div>
+  </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">
 
@@ -381,29 +380,7 @@ var app = new Vue({
 
 
 
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
 
-      var gitalk = new Gitalk({
-        clientID: 'fa032b9b126364a5ad35',
-        clientSecret: 'b740648218c7bed4480c9a863bfef2c99461be19',
-        repo: 'https://github.com/fullstack-kingj/fullstack-kingj.github.io.git',
-        owner: 'fullstack-kingj',
-        admin: ['fullstack-kingj'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
+</body>
 
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
-
-
-
-
-  </body>
 </html>
