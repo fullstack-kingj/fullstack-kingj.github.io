@@ -1,0 +1,357 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>举例解析 JavaScript 中的防抖和节流 | 一心一世</title>
+
+<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1601914963340">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yixinyishi.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            一心一世
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1601914963340" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    举例解析 JavaScript 中的防抖和节流
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-10-06 ·
+                    </time>
+                    
+                        <a href="https://yixinyishi.github.io/tag/debounce/" class="post-tags">
+                            # Debounce
+                        </a>
+                    
+                        <a href="https://yixinyishi.github.io/tag/throttle/" class="post-tags">
+                            # Throttle
+                        </a>
+                    
+                        <a href="https://yixinyishi.github.io/tag/javascript/" class="post-tags">
+                            # JavaScript
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>防抖（<strong>Debounce</strong>）和节流（<strong>throttle</strong>）都是用来控制某个函数在一定时间内执行多少次的技巧，两者相似而又不同。</p>
+<p>当我们给 DOM 绑定事件的时候，加了防抖和节流的函数变得特别有用。为什么呢？因为我们在事件和函数执行之间加了一个控制层。记住，我们是无法控制 DOM 事件触发频率的。</p>
+<!-- more -->
+<p>看下滚动事件的例子：</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="dcorb" data-slug-hash="PZOZgB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Scroll events counter">
+  <span>See the Pen <a href="https://codepen.io/dcorb/pen/PZOZgB">
+  Scroll events counter</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p>当使用触控板，滚动滚轮，或者拖拽滚动条的时候，一秒可以轻松触发 30 次事件。经我的测试，在智能手机上，慢慢滚动一下，一秒可以触发事件 100 次之多。这么高的执行频率，你的滚动回调函数压力大吗？</p>
+<p>早在2011年，Twitter 网站抛出了一个问题：向下滚动 Twitter 信息流的时候，变得很慢，很迟钝。John Resig 发表了<a href="http://ejohn.org/blog/learning-from-twitter">一篇博客解释这个问题</a>，文中解释到直接给 <code>scroll</code> 事件关联昂贵的函数，是多么糟糕的主意。</p>
+<p>John（5年前）建议的解决方案是，在 <code>onScroll</code> 事件外部，每 250ms 循环执行一次。简单的技巧，避免了影响用户体验。</p>
+<p>现如今，有一些稍微高端的方式处理事件。我来结合用例介绍下 Debounce、Throttle 和 requestAnimationFrame 吧。</p>
+<h2 id="防抖动debounce">防抖动（Debounce）</h2>
+<p>防抖技术可以把多个顺序地调用合并成一次。</p>
+<figure data-type="image" tabindex="1"><img src="https://yixinyishi.github.io/post-images/1601914785853.png" alt="" loading="lazy"></figure>
+<p>假想一下，你在电梯中，门快要关了，突然有人准备上来。电梯并没有改变楼层，而是再次打开梯门。电梯延迟了改变楼层的功能，但是优化了资源。</p>
+<p>在顶部按钮上点击或移动鼠标试一下：</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="dcorb" data-slug-hash="KVxGqN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debounce. Trailing">
+  <span>See the Pen <a href="https://codepen.io/dcorb/pen/KVxGqN">
+  Debounce. Trailing</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p>你可以看到连续快速的事件是如何被一个 debounce 事件替代的。但是如果事件触发的时间间隔过长，debounce 则不会生效。</p>
+<h3 id="前缘或者immediate">前缘（或者“immediate”）</h3>
+<p>你会发现，直到事件停止快速执行以后，debounce 事件才会触发相应功能。为何不立即触发呢？那样的话就跟原本的非 debounce 处理无异了。</p>
+<p>直到两次快速调用之间的停顿结束，事件才会再次触发。</p>
+<p>这是带 <code>leading</code> 标记的例子：</p>
+<figure data-type="image" tabindex="2"><img src="https://yixinyishi.github.io/post-images/1601914799140.png" alt="" loading="lazy"></figure>
+<p>在 underscore.js 中，选项叫 <code>immediate</code> ，而不是 <code>leading</code>：</p>
+<h3 id="debounce-实现">Debounce 实现</h3>
+<p>我首次看到 debounce 的 JavaScript 实现是在 2009 年的 <a href="http://unscriptable.com/2009/03/20/debouncing-javascript-methods/">John Hann 的博文</a>。</p>
+<p>不久后，Ben Alman 做了个 <a href="http://benalman.com/projects/jquery-throttle-debounce-plugin/">jQuery 插件</a>（不再维护），一年后 Jeremy Ashkenas 把它<a href="https://github.com/jashkenas/underscore/commit/9e3e067f5025dbe5e93ed784f93b233882ca0ffe">加入了 underscore.js</a>。而后加入了 Lodash 。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="YwNwgy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="New example">
+  <span>See the Pen <a href="https://codepen.io/dcorb/pen/YwNwgy">
+  New example</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p>Lodash 给 <code>_.debounce</code> 和 <code>_.throttle</code> 添加了<a href="https://lodash.com/docs#debounce">不少特性</a>。之前的 <code>immediate</code> 被 <code>leading</code>（最前面） 和 <code>trailing</code>（最后面） 选项取代。你可以选一种，或者都选，默认只有 <code>trailing</code> 启用。</p>
+<p>新的 <code>maxWait</code> 选项（仅 Lodash 有）本文未提及，但是也很有用。事实上，throttle 方法是用 <code>_.debounce</code> 加 <code>maxWait</code> 实现的，你可以看 <a href="https://github.com/lodash/lodash/blob/4.7.0/lodash.js#L9840">lodash 源码</a>。</p>
+<h3 id="debounce-实例">Debounce 实例</h3>
+<p><strong>调整大小的例子</strong></p>
+<p>调整桌面浏览器窗口大小的时候，会触发很多次 <code>resize</code> 事件。</p>
+<p>看下面 demo：</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="XXPjpd" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debounce Resize Event Example">
+  <span>See the Pen <a href="https://codepen.io/dcorb/pen/XXPjpd">
+  Debounce Resize Event Example</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p>如你所见，我们为 resize 事件使用了默认的 <code>trailing</code> 选项，因为我们只关心用户停止调整大小后的最终值。</p>
+<p><strong>基于 AJAX 请求的自动完成功能，通过 keypress 触发</strong></p>
+<p>为什么用户还在输入的时候，每隔50ms就向服务器发送一次 AJAX 请求？<code>_.debounce</code> 可以帮忙，当用户停止输入的时候，再发送请求。</p>
+<p>此处也不需要 <code>leading</code> 标记，我们想等最后一个字符输完。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="mVGVOL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debouncing keystrokes Example">
+  <span>See the Pen <a href="https://codepen.io/dcorb/pen/mVGVOL">
+  Debouncing keystrokes Example</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p>相似的使用场景还有，直到用户输完，才验证输入的正确性，显示错误信息。</p>
+<h2 id="如何使用-debounce-和-throttle-以及常见的坑">如何使用 debounce 和 throttle 以及常见的坑</h2>
+<p>自己造一个 debounce / throttle 的轮子看起来多么诱人，或者随便找个博文复制过来。<strong>我是建议直接使用 underscore 或 Lodash</strong> 。如果仅需要 <code>_.debounce</code> 和 <code>_.throttle</code> 方法，可以使用 Lodash 的自定义构建工具，生成一个 2KB 的压缩库。使用以下的简单命令即可：</p>
+<pre><code class="language-shell">npm i -g lodash-cli
+lodash-cli include=debounce,throttle
+</code></pre>
+<p>常见的坑是，不止一次地调用 <code>_.debounce</code> 方法：</p>
+<pre><code class="language-javascript">// 错误
+$(window).on('scroll', function() {
+   _.debounce(doSomething, 300); 
+});
+// 正确
+$(window).on('scroll', _.debounce(doSomething, 200));
+</code></pre>
+<p>debounce 方法保存到一个变量以后，就可以用它的私有方法 <code>debounced_version.cancel()</code>，lodash 和 underscore.js 都有效。</p>
+<pre><code class="language-javascript">var debounced_version = _.debounce(doSomething, 200);
+$(window).on('scroll', debounced_version);
+// 如果需要的话
+debounced_version.cancel();
+</code></pre>
+<h2 id="throttle节流阀">Throttle（节流阀）</h2>
+<p>使用 <code>_.throttle</code> 的时候，只允许一个函数在 X 毫秒内执行一次。</p>
+<p>跟 debounce 主要的不同在于，throttle 保证 X 毫秒内至少执行一次。</p>
+<p>Ben 的插件 underscore.js 和 lodash 涵盖了与防抖相同的控制方法。</p>
+<h3 id="节流阀实例">节流阀实例</h3>
+<p><strong>无限滚动</strong></p>
+<p>用户向下滚动无限滚动页面，需要检查滚动位置距底部多远，如果邻近底部了，我们可以发 AJAX 请求获取更多的数据插入到页面中。</p>
+<p>我们心爱的 <code>_.debounce</code> 就不适用了，只有当用户停止滚动的时候它才会触发。只要用户滚动至邻近底部时，我们就想获取内容。</p>
+<p>使用 <code>_.throttle</code> 可以保证我们不断检查距离底部有多远。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="eJLMxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Infinite scrolling throttled">
+  <span>See the Pen <a href="https://codepen.io/dcorb/pen/eJLMxa">
+  Infinite scrolling throttled</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<h2 id="requestanimationframeraf">requestAnimationFrame（rAF）</h2>
+<p><code>requestAnimationFrame</code> 是另一种限速执行的方式。</p>
+<p>跟 <code>_.throttle(dosomething, 16)</code> 等价。它是高保真的，如果追求更好的精确度的话，可以用浏览器原生的 API 。</p>
+<p>可以使用 rAF API 替换 throttle 方法，考虑一下优缺点：</p>
+<h3 id="优点">优点</h3>
+<ul>
+<li>动画保持 60fps（每一帧 16 ms），浏览器内部决定渲染的最佳时机</li>
+<li>简洁标准的 API，后期维护成本低</li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li>动画的开始/取消需要开发者自己控制，不像 ‘.debounce’ 或 ‘.throttle’由函数内部处理。</li>
+<li>浏览器标签未激活时，一切都不会执行。</li>
+<li>尽管所有的现代浏览器<a href="http://caniuse.com/#feat=requestanimationframe">都支持 rAF</a> ，IE9，Opera Mini 和 老的 Android 还是<a href="http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/">需要打补丁</a>。</li>
+<li>Node.js 不支持，无法在服务器端用于文件系统事件。</li>
+</ul>
+<p>根据经验，如果 JavaScript 方法需要绘制或者直接改变属性，我会选择 <code>requestAnimationFrame</code>，只要涉及到重新计算元素位置，就可以使用它。</p>
+<p>涉及到 AJAX 请求，添加/移除 <code>class</code> （可以触发 CSS 动画），我会选择 <code>_.debounce</code> 或者 <code>_.throttle</code> ，可以设置更低的执行频率（例子中的 200ms 换成16ms）。</p>
+<h3 id="raf-实例">rAF 实例</h3>
+<p>灵感来自于 <a href="http://www.html5rocks.com/en/tutorials/speed/animations/">Paul Lewis 的文章</a>，我将用 requestAnimationFrame 控制 scroll 。</p>
+<p>16ms 的 <code>_.throttle</code> 拿来做对比，性能相仿，用于更复杂的场景时，rAF 可能效果更佳。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="pgOKKw" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Scroll comparison requestAnimationFrame vs throttle">
+  <span>See the Pen <a href="https://codepen.io/dcorb/pen/pgOKKw">
+  Scroll comparison requestAnimationFrame vs throttle</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<p>headroom.js 是个更<a href="https://github.com/WickyNilliams/headroom.js/blob/3282c23bc69b14f21bfbaf66704fa37b58e3241d/src/Debouncer.js">高级的例子</a>。</p>
+<h2 id="结论">结论</h2>
+<p>使用 debounce、throttle 和 <code>requestAnimationFrame</code> 都可以优化事件处理，三者各不相同，又相辅相成。</p>
+<p>总之：</p>
+<ul>
+<li><strong>debounce</strong>：把触发非常频繁的事件（比如按键）合并成一次执行。</li>
+<li><strong>throttle</strong>：保证每 X 毫秒恒定的执行次数，比如每200ms检查下滚动位置，并触发 CSS 动画。</li>
+<li><strong>requestAnimationFrame</strong>：可替代 throttle ，函数需要重新计算和渲染屏幕上的元素时，想保证动画或变化的平滑性，可以用它。注意：IE9 不支持。</li>
+</ul>
+<blockquote>
+<p><strong>转载声明</strong></p>
+<ul>
+<li>译文： <a href="https://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/">《实例解析防抖动（Debouncing）和节流阀（Throttling）》</a></li>
+<li>译者： <a href="https://weibo.com/newwave">涂鸦码龙</a></li>
+<li>原文：<a href="https://css-tricks.com/debouncing-throttling-explained-examples/">《Debouncing and Throttling Explained Through Examples》</a></li>
+<li>作者：<a href="https://css-tricks.com/author/dcorbacho/">David Corbacho</a></li>
+</ul>
+</blockquote>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://yixinyishi.github.io/post/cmder-better-than-cmd/" class="post-title gt-a-link">
+                    用 Cmder 替换自带的命令提示符，让开发更高效
+                </a>
+            </div>
+        
+
+        
+
+        
+            
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script>
+    // md5.min.js
+    !function(n){
+        "use strict";
+        function d(n,t){var r=(65535&n)+(65535&t);return(n>>16)+(t>>16)+(r>>16)<<16|65535&r}
+        function f(n,t,r,e,o,u){return d((c=d(d(t,n),d(e,u)))<<(f=o)|c>>>32-f,r);var c,f}
+        function l(n,t,r,e,o,u,c){return f(t&r|~t&e,n,t,o,u,c)}
+        function v(n,t,r,e,o,u,c){return f(t&e|r&~e,n,t,o,u,c)}
+        function g(n,t,r,e,o,u,c){return f(t^r^e,n,t,o,u,c)}
+        function m(n,t,r,e,o,u,c){return f(r^(t|~e),n,t,o,u,c)}
+        function i(n,t){var r,e,o,u,c;n[t>>5]|=128<<t%32,n[14+(t+64>>>9<<4)]=t;var f=1732584193,i=-271733879,a=-1732584194,h=271733878;for(r=0;r<n.length;r+=16)f=l(e=f,o=i,u=a,c=h,n[r],7,-680876936),h=l(h,f,i,a,n[r+1],12,-389564586),a=l(a,h,f,i,n[r+2],17,606105819),i=l(i,a,h,f,n[r+3],22,-1044525330),f=l(f,i,a,h,n[r+4],7,-176418897),h=l(h,f,i,a,n[r+5],12,1200080426),a=l(a,h,f,i,n[r+6],17,-1473231341),i=l(i,a,h,f,n[r+7],22,-45705983),f=l(f,i,a,h,n[r+8],7,1770035416),h=l(h,f,i,a,n[r+9],12,-1958414417),a=l(a,h,f,i,n[r+10],17,-42063),i=l(i,a,h,f,n[r+11],22,-1990404162),f=l(f,i,a,h,n[r+12],7,1804603682),h=l(h,f,i,a,n[r+13],12,-40341101),a=l(a,h,f,i,n[r+14],17,-1502002290),f=v(f,i=l(i,a,h,f,n[r+15],22,1236535329),a,h,n[r+1],5,-165796510),h=v(h,f,i,a,n[r+6],9,-1069501632),a=v(a,h,f,i,n[r+11],14,643717713),i=v(i,a,h,f,n[r],20,-373897302),f=v(f,i,a,h,n[r+5],5,-701558691),h=v(h,f,i,a,n[r+10],9,38016083),a=v(a,h,f,i,n[r+15],14,-660478335),i=v(i,a,h,f,n[r+4],20,-405537848),f=v(f,i,a,h,n[r+9],5,568446438),h=v(h,f,i,a,n[r+14],9,-1019803690),a=v(a,h,f,i,n[r+3],14,-187363961),i=v(i,a,h,f,n[r+8],20,1163531501),f=v(f,i,a,h,n[r+13],5,-1444681467),h=v(h,f,i,a,n[r+2],9,-51403784),a=v(a,h,f,i,n[r+7],14,1735328473),f=g(f,i=v(i,a,h,f,n[r+12],20,-1926607734),a,h,n[r+5],4,-378558),h=g(h,f,i,a,n[r+8],11,-2022574463),a=g(a,h,f,i,n[r+11],16,1839030562),i=g(i,a,h,f,n[r+14],23,-35309556),f=g(f,i,a,h,n[r+1],4,-1530992060),h=g(h,f,i,a,n[r+4],11,1272893353),a=g(a,h,f,i,n[r+7],16,-155497632),i=g(i,a,h,f,n[r+10],23,-1094730640),f=g(f,i,a,h,n[r+13],4,681279174),h=g(h,f,i,a,n[r],11,-358537222),a=g(a,h,f,i,n[r+3],16,-722521979),i=g(i,a,h,f,n[r+6],23,76029189),f=g(f,i,a,h,n[r+9],4,-640364487),h=g(h,f,i,a,n[r+12],11,-421815835),a=g(a,h,f,i,n[r+15],16,530742520),f=m(f,i=g(i,a,h,f,n[r+2],23,-995338651),a,h,n[r],6,-198630844),h=m(h,f,i,a,n[r+7],10,1126891415),a=m(a,h,f,i,n[r+14],15,-1416354905),i=m(i,a,h,f,n[r+5],21,-57434055),f=m(f,i,a,h,n[r+12],6,1700485571),h=m(h,f,i,a,n[r+3],10,-1894986606),a=m(a,h,f,i,n[r+10],15,-1051523),i=m(i,a,h,f,n[r+1],21,-2054922799),f=m(f,i,a,h,n[r+8],6,1873313359),h=m(h,f,i,a,n[r+15],10,-30611744),a=m(a,h,f,i,n[r+6],15,-1560198380),i=m(i,a,h,f,n[r+13],21,1309151649),f=m(f,i,a,h,n[r+4],6,-145523070),h=m(h,f,i,a,n[r+11],10,-1120210379),a=m(a,h,f,i,n[r+2],15,718787259),i=m(i,a,h,f,n[r+9],21,-343485551),f=d(f,e),i=d(i,o),a=d(a,u),h=d(h,c);return[f,i,a,h]}
+        function a(n){var t,r="",e=32*n.length;for(t=0;t<e;t+=8)r+=String.fromCharCode(n[t>>5]>>>t%32&255);return r}
+        function h(n){var t,r=[];for(r[(n.length>>2)-1]=void 0,t=0;t<r.length;t+=1)r[t]=0;var e=8*n.length;for(t=0;t<e;t+=8)r[t>>5]|=(255&n.charCodeAt(t/8))<<t%32;return r}
+        function e(n){var t,r,e="0123456789abcdef",o="";for(r=0;r<n.length;r+=1)t=n.charCodeAt(r),o+=e.charAt(t>>>4&15)+e.charAt(15&t);return o}
+        function r(n){return unescape(encodeURIComponent(n))}
+        function o(n){return a(i(h(t=r(n)),8*t.length));var t}
+        function u(n,t){return function(n,t){var r,e,o=h(n),u=[],c=[];for(u[15]=c[15]=void 0,16<o.length&&(o=i(o,8*n.length)),r=0;r<16;r+=1)u[r]=909522486^o[r],c[r]=1549556828^o[r];return e=i(u.concat(h(t)),512+8*t.length),a(i(c.concat(e),640))}(r(n),r(t))}
+        function t(n,t,r){return t?r?u(t,n):e(u(t,n)):r?o(n):e(o(n))}
+        "function"==typeof define&&define.amd?define(function(){return t}):"object"==typeof module&&module.exports?module.exports=t:n.md5=t;
+    }(this);
+</script>
+
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '992a863a86ecbf73c813',
+    clientSecret: 'b5b8eeb14432b18cf9e5422326cc2736465517c7',
+    repo: 'https://github.com/yixinyishi/yixinyishi.github.io.git',
+    owner: 'yixinyishi',
+    admin: ['yixinyishi'],
+    id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false       // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+            
+
+            
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">一心一世界，一步一人生。</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yixinyishi.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

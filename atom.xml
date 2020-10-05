@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yixinyishi.github.io</id>
     <title>一心一世</title>
-    <updated>2020-10-05T16:11:38.926Z</updated>
+    <updated>2020-10-05T16:22:48.169Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yixinyishi.github.io"/>
     <link rel="self" href="https://yixinyishi.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://yixinyishi.github.io/images/avatar.png</logo>
     <icon>https://yixinyishi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 一心一世</rights>
+    <entry>
+        <title type="html"><![CDATA[举例解析 JavaScript 中的防抖和节流]]></title>
+        <id>https://yixinyishi.github.io/post/debouncing-throttling-explained-examples/</id>
+        <link href="https://yixinyishi.github.io/post/debouncing-throttling-explained-examples/">
+        </link>
+        <updated>2020-10-05T16:17:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>防抖（<strong>Debounce</strong>）和节流（<strong>throttle</strong>）都是用来控制某个函数在一定时间内执行多少次的技巧，两者相似而又不同。</p>
+<p>当我们给 DOM 绑定事件的时候，加了防抖和节流的函数变得特别有用。为什么呢？因为我们在事件和函数执行之间加了一个控制层。记住，我们是无法控制 DOM 事件触发频率的。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>防抖（<strong>Debounce</strong>）和节流（<strong>throttle</strong>）都是用来控制某个函数在一定时间内执行多少次的技巧，两者相似而又不同。</p>
+<p>当我们给 DOM 绑定事件的时候，加了防抖和节流的函数变得特别有用。为什么呢？因为我们在事件和函数执行之间加了一个控制层。记住，我们是无法控制 DOM 事件触发频率的。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[用 Cmder 替换自带的命令提示符，让开发更高效]]></title>
         <id>https://yixinyishi.github.io/post/cmder-better-than-cmd/</id>
