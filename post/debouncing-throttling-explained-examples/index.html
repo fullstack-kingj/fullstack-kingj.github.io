@@ -6,7 +6,7 @@
 
 <title>举例解析 JavaScript 中的防抖和节流 | 一心一世</title>
 
-<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1601915157638">
+<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1601915411975">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://yixinyishi.github.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1601915157638" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1601915411975" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -129,7 +129,7 @@
 <figure data-type="image" tabindex="1"><img src="https://yixinyishi.github.io/post-images/1601914785853.png" alt="" loading="lazy"></figure>
 <p>假想一下，你在电梯中，门快要关了，突然有人准备上来。电梯并没有改变楼层，而是再次打开梯门。电梯延迟了改变楼层的功能，但是优化了资源。</p>
 <p>在顶部按钮上点击或移动鼠标试一下：</p>
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="dcorb" data-slug-hash="KVxGqN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debounce. Trailing">
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="dcorb" data-slug-hash="KVxGqN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debounce. Trailing">
   <span>See the Pen <a href="https://codepen.io/dcorb/pen/KVxGqN">
   Debounce. Trailing</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -145,7 +145,7 @@
 <h3 id="debounce-实现">Debounce 实现</h3>
 <p>我首次看到 debounce 的 JavaScript 实现是在 2009 年的 <a href="http://unscriptable.com/2009/03/20/debouncing-javascript-methods/">John Hann 的博文</a>。</p>
 <p>不久后，Ben Alman 做了个 <a href="http://benalman.com/projects/jquery-throttle-debounce-plugin/">jQuery 插件</a>（不再维护），一年后 Jeremy Ashkenas 把它<a href="https://github.com/jashkenas/underscore/commit/9e3e067f5025dbe5e93ed784f93b233882ca0ffe">加入了 underscore.js</a>。而后加入了 Lodash 。</p>
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="YwNwgy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="New example">
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="dcorb" data-slug-hash="YwNwgy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="New example">
   <span>See the Pen <a href="https://codepen.io/dcorb/pen/YwNwgy">
   New example</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -157,7 +157,7 @@
 <p><strong>调整大小的例子</strong></p>
 <p>调整桌面浏览器窗口大小的时候，会触发很多次 <code>resize</code> 事件。</p>
 <p>看下面 demo：</p>
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="XXPjpd" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debounce Resize Event Example">
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="dcorb" data-slug-hash="XXPjpd" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debounce Resize Event Example">
   <span>See the Pen <a href="https://codepen.io/dcorb/pen/XXPjpd">
   Debounce Resize Event Example</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -167,7 +167,7 @@
 <p><strong>基于 AJAX 请求的自动完成功能，通过 keypress 触发</strong></p>
 <p>为什么用户还在输入的时候，每隔50ms就向服务器发送一次 AJAX 请求？<code>_.debounce</code> 可以帮忙，当用户停止输入的时候，再发送请求。</p>
 <p>此处也不需要 <code>leading</code> 标记，我们想等最后一个字符输完。</p>
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="mVGVOL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debouncing keystrokes Example">
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="dcorb" data-slug-hash="mVGVOL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debouncing keystrokes Example">
   <span>See the Pen <a href="https://codepen.io/dcorb/pen/mVGVOL">
   Debouncing keystrokes Example</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -202,7 +202,7 @@ debounced_version.cancel();
 <p>用户向下滚动无限滚动页面，需要检查滚动位置距底部多远，如果邻近底部了，我们可以发 AJAX 请求获取更多的数据插入到页面中。</p>
 <p>我们心爱的 <code>_.debounce</code> 就不适用了，只有当用户停止滚动的时候它才会触发。只要用户滚动至邻近底部时，我们就想获取内容。</p>
 <p>使用 <code>_.throttle</code> 可以保证我们不断检查距离底部有多远。</p>
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="eJLMxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Infinite scrolling throttled">
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="dcorb" data-slug-hash="eJLMxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Infinite scrolling throttled">
   <span>See the Pen <a href="https://codepen.io/dcorb/pen/eJLMxa">
   Infinite scrolling throttled</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -229,7 +229,7 @@ debounced_version.cancel();
 <h3 id="raf-实例">rAF 实例</h3>
 <p>灵感来自于 <a href="http://www.html5rocks.com/en/tutorials/speed/animations/">Paul Lewis 的文章</a>，我将用 requestAnimationFrame 控制 scroll 。</p>
 <p>16ms 的 <code>_.throttle</code> 拿来做对比，性能相仿，用于更复杂的场景时，rAF 可能效果更佳。</p>
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="dcorb" data-slug-hash="pgOKKw" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Scroll comparison requestAnimationFrame vs throttle">
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="dcorb" data-slug-hash="pgOKKw" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Scroll comparison requestAnimationFrame vs throttle">
   <span>See the Pen <a href="https://codepen.io/dcorb/pen/pgOKKw">
   Scroll comparison requestAnimationFrame vs throttle</a> by Corbacho (<a href="https://codepen.io/dcorb">@dcorb</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
