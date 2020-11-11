@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yixinyishi.github.io</id>
     <title>心世当云</title>
-    <updated>2020-11-11T08:12:07.920Z</updated>
+    <updated>2020-11-11T08:47:03.526Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yixinyishi.github.io"/>
     <link rel="self" href="https://yixinyishi.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://yixinyishi.github.io/images/avatar.png</logo>
     <icon>https://yixinyishi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 心世当云</rights>
+    <entry>
+        <title type="html"><![CDATA[Express框架如何接收POST方法的请求参数]]></title>
+        <id>https://yixinyishi.github.io/post/express-deal-with-post-params/</id>
+        <link href="https://yixinyishi.github.io/post/express-deal-with-post-params/">
+        </link>
+        <updated>2020-10-11T07:55:50.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>使用 Express 框架时，通过 POST 方式处理客户端的请求参数，但是通过 <code>req.query</code> 接收到的一直都是 <code>{}</code>。</p>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="问题描述">问题描述</h2>
+<p>使用 Express 框架时，通过 POST 方式处理客户端的请求参数，但是通过 <code>req.query</code> 接收到的一直都是 <code>{}</code>。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[举例解析 JavaScript 中的防抖和节流]]></title>
         <id>https://yixinyishi.github.io/post/debouncing-throttling-explained-examples/</id>

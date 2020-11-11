@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>匿名函数自调用(IIFE) | 心世当云</title>
+<title>Express框架如何接收POST方法的请求参数 | 心世当云</title>
 
 <link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1605084380958">
 
@@ -89,120 +89,110 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    匿名函数自调用(IIFE)
+                    Express框架如何接收POST方法的请求参数
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-01-08 ·
+                        · 2020-10-11 ·
                     </time>
                     
-                        <a href="https://yixinyishi.github.io/tag/javascript/" class="post-tags">
-                            # JavaScript
+                        <a href="https://yixinyishi.github.io/tag/express/" class="post-tags">
+                            # Express
                         </a>
                     
-                        <a href="https://yixinyishi.github.io/tag/function/" class="post-tags">
-                            # Function
+                        <a href="https://yixinyishi.github.io/tag/node/" class="post-tags">
+                            # Node
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <p>JavaScript 中定义函数的方式有多种，函数直接量就是其中一种。如 <code>var fun = function(){}</code>，这里 function 如果不赋值给 fun 那么它就是一个匿名函数。好，看看匿名函数的如何被调用。</p>
-<!--more-->
-<h2 id="调用方式">调用方式</h2>
-<p>调用函数，得到返回值。强制运算符使函数调用执行：</p>
-<pre><code class="language-javascript">(function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4));
+                    <h2 id="问题描述">问题描述</h2>
+<p>使用 Express 框架时，通过 POST 方式处理客户端的请求参数，但是通过 <code>req.query</code> 接收到的一直都是 <code>{}</code>。</p>
+<!-- more -->
+<h2 id="问题还原">问题还原</h2>
+<p>为了清晰地记录这个问题，我将问题进行抽离单独还原这个问题的场景。现在抽离之后的工程目录如下：</p>
+<pre><code class="language-shell">|--app.js
+|--index.ejs
+|--package.json
 </code></pre>
-<p>调用函数，得到返回值。强制函数直接量执行再返回一个引用，引用再去调用执行：</p>
-<pre><code class="language-javascript">(function(x,y){
-    alert(x+y);
-    return x+y;
-})(3,4);
+<p>这里使用了 ejs 模板引擎，所以要先安装 ejs 和 Express 框架：</p>
+<pre><code class="language-shell">npm install --save--dev express
+npm install --sve--dev ejs
 </code></pre>
-<p>这种方式也是很多库爱用的调用方式，如<a href="http://jquery.com" title="jQuery官网">jQuery</a>，<a href="http://mootools.net/" title="Mootools官网">Mootools</a>。</p>
-<p>使用void：</p>
-<pre><code class="language-javascript">void function(x) {
-      x = x-1;
-      alert(x);
-}(9);   
-</code></pre>
-<p>使用-/+运算符：</p>
-<pre><code class="language-javascript">-function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
+<p>然后 <code>app.js</code> 文件作为主要的处理文件，代码如下：</p>
+<pre><code class="language-javascript">const express = require(&quot;express&quot;);
+const app = express();
+const port = 8080;
 
-+function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
+// 设置模板文件所在的目录
+app.set(&quot;views&quot;, &quot;./&quot;);
+// 设置使用的模板引擎
+app.set(&quot;view engine&quot;, &quot;ejs&quot;);
+// 主页路由
+app.get(&quot;/&quot;, (req, res) =&gt; {
+  res.render(&quot;./index.ejs&quot;);
+});
+// 处理POST方式的请求
+app.post(&quot;/test&quot;, (req, res) =&gt; {
+  // 接收请求参数
+  console.log(req.query);
+});
 
---function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
+app.listen(port, () =&gt; console.log(`Example app listening on port ${port}!`));
+</code></pre>
+<p>在访问主页时需要显式一个表单，用来提交 POST 方式的请求：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;问题还原&lt;/title&gt;
+  &lt;/head&gt;
 
-++function(x,y){
-    alert(x+y);
-    return x+y;
-}(3,4);
+  &lt;body&gt;
+    &lt;form action=&quot;/test&quot; method=&quot;POST&quot;&gt;
+      &lt;input type=&quot;text&quot; id=&quot;inputValue&quot; name=&quot;inputValue&quot; /&gt;
+      &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p>使取反运算符(~) ：</p>
-<pre><code class="language-javascript">~function(x, y) {
-    alert(x+y);
-   return x+y;
-}(3, 4);
+<p>最后通过 <code>node app.js</code> 命令启动服务，这时访问 <code>http://127.0.0.1:8080</code> 时可以在浏览器中看到这个表单了。</p>
+<figure data-type="image" tabindex="1"><img src="/images/1602402754197.png" alt="" loading="lazy"></figure>
+<p>在输入框输入任意内容，然后点击【提交】按钮，这时看一下控制台的打印信息：</p>
+<figure data-type="image" tabindex="2"><img src="/images/1602402762257.png" alt="" loading="lazy"></figure>
+<h2 id="解决方案">解决方案</h2>
+<p>查询了一下 Express 框架的官网 API 文档，发现遇到这个问题有两个错误。</p>
+<ol>
+<li>Express 框架接收 POST 方式的请求参数使用的不是 <code>req.query</code> 而是 <code>req.body</code></li>
+<li>Express 框架在接收 POST 方式的请求参数之前需要设置 <code>app.use(express.json())</code> 和 <code>app.use(express.urlencoded({ extended: true }))</code></li>
+</ol>
+<p>改造之后的 <code>app.js</code> 文件的代码如下：</p>
+<pre><code class="language-javascript">const express = require(&quot;express&quot;);
+const app = express();
+const port = 8080;
+
+app.set(&quot;views&quot;, &quot;./&quot;);
+app.set(&quot;view engine&quot;, &quot;ejs&quot;);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get(&quot;/&quot;, (req, res) =&gt; {
+  res.render(&quot;./index.ejs&quot;);
+});
+
+app.post(&quot;/test&quot;, (req, res) =&gt; {
+  console.log(req.body);
+});
+
+app.listen(port, () =&gt; console.log(`Example app listening on port ${port}!`));
 </code></pre>
-<p>匿名函数执行放在中括号内：</p>
-<pre><code class="language-javascript">[function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)]
-</code></pre>
-<p>匿名函数前加typeof：</p>
-<pre><code class="language-javascript">typeof function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)
-</code></pre>
-<p>匿名函数前加delete：</p>
-<pre><code class="language-javascript">delete function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)   
-</code></pre>
-<p>匿名函数前加void：</p>
-<pre><code class="language-javascript">void function(){
-   console.log(this) // 浏览器得控制台输出window
-}(this)
-</code></pre>
-<p>使用new方式，传参数：</p>
-<pre><code class="language-javascript">new function(win){
-   console.log(win) // window
-}(this)
-</code></pre>
-<p>使用new，不传参数：</p>
-<pre><code class="language-javascript">new function(){
-    console.log(this) // 这里的this就不是window了
-}  
-</code></pre>
-<p>逗号运算符：</p>
-<pre><code class="language-javascript">,function(){
-    console.log(this) // window
-}();
-</code></pre>
-<p>按位异或运算符：</p>
-<pre><code class="language-javascript">^function(){
-    console.log(this) // window
-}();
-</code></pre>
-<p>比较运算符：</p>
-<pre><code class="language-javascript">&gt;function(){
-    console.log(this) // window
-}();
-</code></pre>
-<blockquote>
-<p><strong>说明</strong>：本文摘自<a href="http://segmentfault.com/a/1190000002435410">http://segmentfault.com/a/1190000002435410</a></p>
-</blockquote>
+<p>改造之后通过 <code>node app.js</code> 命令重新启动服务，然后在输入框输入任意内容，然后点击【提交】按钮，这时看一下控制台的打印信息：</p>
+<figure data-type="image" tabindex="3"><img src="/images/1602402770995.png" alt="" loading="lazy"></figure>
+<p>到此问题解决~</p>
+<h2 id="写在后面的话">写在后面的话</h2>
+<p>这个问题其实很简单，也很基础~ 可是有时候就是容易犯错，好记性不如烂笔头！</p>
 
                 </div>
             </article>
@@ -211,14 +201,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://yixinyishi.github.io/post/css-coding-standards/" class="post-title gt-a-link">
-                    网易前端 CSS 编码规范
+                <a href="https://yixinyishi.github.io/post/debouncing-throttling-explained-examples/" class="post-title gt-a-link">
+                    举例解析 JavaScript 中的防抖和节流
                 </a>
             </div>
         
 
         
-            <span id="/post/anonymous-function-call/" class="leancloud_visitors" data-flag-title="匿名函数自调用(IIFE)">
+            <span id="/post/express-deal-with-post-params/" class="leancloud_visitors" data-flag-title="Express框架如何接收POST方法的请求参数">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
