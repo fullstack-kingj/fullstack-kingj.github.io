@@ -1,112 +1,91 @@
 <html>
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>用 Cmder 替换自带的命令提示符，让开发更高效 | 心世当云</title>
+<link rel="shortcut icon" href="https://fullstack-kingj.github.io/favicon.ico?v=1606364175496">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://fullstack-kingj.github.io/styles/main.css">
 
-<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1605084380958">
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://yixinyishi.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
 <!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
+<script src="media/scripts/index.js"></script>
 
 
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            心世当云
-        </div>
+  <div class="main">
+    <div class="main-content">
+      <div class="site-header">
+  <div class="container header-container">
+    <a class="title-container" href="https://fullstack-kingj.github.io">
+      
+      <img class="avatar" src="/media/images/custom-logo.png" alt="">
+      
+      <h1 class="site-title">
+        心世当云
+      </h1>
+    </a>
+    <div class="menu-container">
+      
+      
+      <a href="/" class="menu">
+        首页
+      </a>
+      
+      
+      
+      <a href="/archives" class="menu">
+        归档
+      </a>
+      
+      
+      
+      <a href="/tags" class="menu">
+        标签
+      </a>
+      
+      
+      
+      <a href="/post/about" class="menu">
+        关于
+      </a>
+      
+      
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
-        </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1605084380958" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
+  </div>
+</div>
 
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    用 Cmder 替换自带的命令提示符，让开发更高效
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 2020-10-06 ·
-                    </time>
-                    
-                        <a href="https://yixinyishi.github.io/tag/tools/" class="post-tags">
-                            # Tools
-                        </a>
-                    
-                        <a href="https://yixinyishi.github.io/tag/cmder/" class="post-tags">
-                            # Cmder
-                        </a>
-                    
-                </div>
-                <div class="post-content">
-                    <p>不知道有多少小伙伴和我一样，一直是 Windows 和 Mac 双系统并用的状态。说句心里话 Mac 确实是贵，但真心是用了就回不去。要不是有些软件只有 Windows 版本的，我是真心不想在用 Windows 系统了（<em>玩游戏的小伙伴无视</em>）！</p>
+      <div class="content container clearfix">
+        <div class="panel post-container">
+          <h4 class="panel-title">文章内容</h4>
+          <article class="post post-detail">
+            <h1 class="post-title">
+              用 Cmder 替换自带的命令提示符，让开发更高效
+            </h1>
+            <div class="post-info">
+              <time class="post-time">
+                发表于 · 2020-10-06 ·
+              </time>
+              
+              <a href="https://fullstack-kingj.github.io/tag/tools/" class="post-tag">
+                # Tools
+              </a>
+              
+              <a href="https://fullstack-kingj.github.io/tag/cmder/" class="post-tag">
+                # Cmder
+              </a>
+              
+            </div>
+
+            
+            <div class="post-content">
+              <p>不知道有多少小伙伴和我一样，一直是 Windows 和 Mac 双系统并用的状态。说句心里话 Mac 确实是贵，但真心是用了就回不去。要不是有些软件只有 Windows 版本的，我是真心不想在用 Windows 系统了（<em>玩游戏的小伙伴无视</em>）！</p>
 <!-- more -->
 <p>扯远了不是，来说主题吧~</p>
 <p>之前一直苦于 Windows 系统下自带的命令提示符没有 Mac 系统自带的终端好用，偶然间让我知道了 Cmder，于是便百度了一下（<em>国内不翻墙的情况没法用 Google 啊~</em>），居然还有这等神奇存在，原谅我的孤陋寡闻吧！</p>
@@ -121,7 +100,7 @@
 </blockquote>
 <p>额... ... 看完之后，尴尬的一匹~ Windows 你是有多招人待见啊！</p>
 <p>算了，咱还是接着往下说吧。安装之前，先来看看 Cmder 的界面，是不是真像官网说的一样：</p>
-<figure data-type="image" tabindex="1"><img src="https://yixinyishi.github.io/post-images/1601914130240.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://fullstack-kingj.github.io/post-images/1601914130240.png" alt="" loading="lazy"></figure>
 <p>还... ...真的挺好看的，不是吗？！</p>
 <h2 id="为啥要用-cmder">为啥要用 Cmder</h2>
 <p>除了界面好看之外，Cmder 是不是真的比 Windows 系统自带的命令提示符好用呢？以及我们到底有什么场景是用 Cmder 更好呢？</p>
@@ -132,7 +111,7 @@
 <h2 id="关于下载要说的">关于下载要说的</h2>
 <p>对于一个程序员来讲，下载并且安装一个软件并不是值得说的一件事儿。但是吧，Cmder 的下载还真的得说一说。</p>
 <p>首先，当你访问 Cmder 的<a href="https://cmder.net/">官网</a>时，往下拖动拖动就能找到下载的界面：</p>
-<figure data-type="image" tabindex="2"><img src="https://yixinyishi.github.io/post-images/1601914140301.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://fullstack-kingj.github.io/post-images/1601914140301.png" alt="" loading="lazy"></figure>
 <p>从介绍上可以知道的是，Cmder 提供了两个版本，一个是完整版（<em>自带 Git</em>），一个是 Mini 版。当然，完整版的文件要更大一些，并且功能上要更全一些（<em>本人并没有验证过，反正必须是完整版！</em>）。</p>
 <p>再有个事儿，就是 Cmder 官方提供的下载地址是 GitHub 仓库。GitHub 自从被微软收购之后，对于国内来说更好用了倒不知道，反正经常被墙。</p>
 <p>所以，我把我下载的安装文件贡献出来，方（pian）便（yi）你啦~</p>
@@ -141,18 +120,18 @@
 </blockquote>
 <h2 id="安装之后的必须配置">安装之后的必须配置</h2>
 <p>Cmder 官方提供的安装包实际上就是个绿色版的，根本就不需要安装。但你想要正常使用的话，还得进行配置一下，而且这个事儿官网上说的不清不楚的。不信的话你看啊~</p>
-<figure data-type="image" tabindex="3"><img src="https://yixinyishi.github.io/post-images/1601914149250.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://fullstack-kingj.github.io/post-images/1601914149250.png" alt="" loading="lazy"></figure>
 <p>实际上，这个事儿吧~ 应该是这样的：得把 <code>Cmder.exe</code> 文件所在的文件路径添加到系统的环境变量里面。</p>
 <p><strong>1. 在桌面鼠标右键点击【此电脑】或者【我的电脑】，然后选择【属性】选项。</strong></p>
-<figure data-type="image" tabindex="4"><img src="https://yixinyishi.github.io/post-images/1601914156658.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://fullstack-kingj.github.io/post-images/1601914156658.png" alt="" loading="lazy"></figure>
 <p><strong>2. 在弹出来的界面选择左边菜单中的【高级系统设置】。</strong></p>
-<figure data-type="image" tabindex="5"><img src="https://yixinyishi.github.io/post-images/1601914163626.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://fullstack-kingj.github.io/post-images/1601914163626.png" alt="" loading="lazy"></figure>
 <p><strong>3. 在再弹出来的界面选择右下角的【环境变量】。</strong></p>
-<figure data-type="image" tabindex="6"><img src="https://yixinyishi.github.io/post-images/1601914171030.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://fullstack-kingj.github.io/post-images/1601914171030.png" alt="" loading="lazy"></figure>
 <p><strong>4. 在最后弹出来的界面里面的下面这个框里面，找到【Path】变量。</strong></p>
-<figure data-type="image" tabindex="7"><img src="https://yixinyishi.github.io/post-images/1601914178739.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://fullstack-kingj.github.io/post-images/1601914178739.png" alt="" loading="lazy"></figure>
 <p><strong>5. 鼠标双击这个【Path】变量的一行，会弹出来修改的界面。（<em>真的是最后一个界面啦~ 不骗你</em>）</strong></p>
-<figure data-type="image" tabindex="8"><img src="https://yixinyishi.github.io/post-images/1601914186413.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://fullstack-kingj.github.io/post-images/1601914186413.png" alt="" loading="lazy"></figure>
 <p><strong>6. 最后一个步骤，点击右上角的【新建】按钮，把你的 Cmder 文件路径添加到【Path】变量中。</strong></p>
 <p>比如，我的 Cmder 放到了 D 盘的 Software 文件夹里面了，所以我的路径就是这样的：</p>
 <pre><code class="language-shell">D:\Software\cmder\Cmder.exe
@@ -162,7 +141,7 @@
 <p>如果你是像我一样的懒人，接下来我要说的事儿你得好好看啦~ 就是把 Cmder 添加到鼠标的右键菜单里面，这样我们就可以随时随地地用 Cmder 啦！爽吧？！</p>
 <p>OK！Let's start~</p>
 <p><strong>首先，打开 Windows 系统自带的命令提示符（cmd），然后进入到你的 Cmder 文件夹目录中。</strong></p>
-<figure data-type="image" tabindex="9"><img src="https://yixinyishi.github.io/post-images/1601914195637.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://fullstack-kingj.github.io/post-images/1601914195637.png" alt="" loading="lazy"></figure>
 <blockquote>
 <p>啥？不知道咋在命令提示符中切换盘符？我早就想到了 😃</p>
 <p>在命令提示符中输入 <code>D:</code> 就是切换到 D 盘，你当然要切换到你的 Cmder 所在的盘符啦！</p>
@@ -173,94 +152,150 @@
 Cmder.exe /REGISTER ALL
 </code></pre>
 <p><strong>执行完成之后，你就能在任何地方鼠标右键看到 Cmder 选项啦！</strong></p>
-<figure data-type="image" tabindex="10"><img src="https://yixinyishi.github.io/post-images/1601914203803.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://fullstack-kingj.github.io/post-images/1601914203803.png" alt="" loading="lazy"></figure>
 <h2 id="写在最后的话">写在最后的话</h2>
 <p>关于 Cmder 的配置还有很多，比如界面效果的设置、字体、颜色等等。这里我就不费口舌了，待小伙伴们自己百度摸索吧！</p>
 <p>... ...</p>
 <p>再多说一句话吧~ 想进入 Cmder 界面设置的话，打开 Cmder 之后使用快捷键 <code>Windows</code> + <code>Alt</code> + <code>P</code> 可以直接进入的。好了，就这么多吧！</p>
 
-                </div>
-            </article>
-        </div>
-
-        
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://yixinyishi.github.io/post/pretty-vscode-theme/" class="post-title gt-a-link">
-                    一款好看的 VSCode 代码主题和图标主题
-                </a>
             </div>
-        
+          </article>
 
-        
-            <span id="/post/cmder-better-than-cmd/" class="leancloud_visitors" data-flag-title="用 Cmder 替换自带的命令提示符，让开发更高效">
-                <em class="post-meta-item-text">阅读量 </em>
-                <i class="leancloud-visitors-count">0</i>
-            </span>
-        
-
-        
-
-        
-            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
-
-<style>
-	div#vcomments{
-		width:100%;
-		max-width: 1000px;
-		padding: 2.5%
-	}
-</style>
-
-
-	<div id="vcomments"></div>
-
-<script>
-	new Valine({
-		el: '#vcomments',
-		appId: 'dPUVgDJ7SzoTDVT3QsAdJTO7-gzGzoHsz',
-		appKey: 'VaVsDkSaAKmthyWhmdnW4nCu',
-		avatar: '',
-		pageSize: 5,
-		recordIp: false,
-		placeholder: '来吧~把你的想法写出来吧！',
-		visitor: true,
-	});
-</script>
-
-        
-
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">少年心事当拿云，谁念幽寒坐呜呃。</div>
-    <div class="social-container">
-        
+          <div class="pagination-container">
             
-        
+            <a class="prev-btn" href="https://fullstack-kingj.github.io/post/debouncing-throttling-explained-examples/">上一篇</a>
             
-        
+
             
-        
+            <a class="next-btn" href="https://fullstack-kingj.github.io/post/pretty-vscode-theme/">下一篇</a>
             
-        
-            
-        
-            
-        
+          </div>
+
+          
+        </div>
+        <div class="sidebar">
+  <div class="panel slidebar-module">
+    <h4 class="panel-title">博主信息</h4>
+    <div class="blogger-panel">
+      <img class="avatar" src="https://fullstack-kingj.github.io/images/avatar.png?v=1606364175496" alt="">
+      <h5 class="author">KingJ</h5>
+      <p class="description">追梦若冷，就用希望取暖。</p>
     </div>
+  </div>
+  
+  
+  <div class="panel slidebar-module offical-SNS">
+    <h4 class="panel-title">社交账号</h4>
+    <ul class="offical-SNS-list">
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/qq.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a id="sns_qq" href="/media/images/custom-sns_qq.png" target="_blank">QQ</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/wechat.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a id="sns_wechat" href="/media/images/custom-sns_wechat.png" target="_blank">微信</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/github.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://github.com/fullstack-kingj" target="_blank">GitHub</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/csdn.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://blog.csdn.net/kingj_fullstack" target="_blank">CSDN</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/juejin.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://juejin.cn/user/2875978145606045" target="_blank">掘金</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/segmentfault.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://segmentfault.com/u/fullstack_kingj" target="_blank">思否</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <div id="pop_dialog" class="pop-dialog">
+    <div class="dialog-mask"></div>
+    <div class="dialog-box">
+      <div class="dialog-title">
+        <h4 class="title"></h4>
+        <a id="btn_close" class="dialog-close"></a>
+      </div>
+      <div class="dialog-content">
+        <img src="#" alt="">
+      </div>
+    </div>
+  </div>
+  <script src="https://fullstack-kingj.github.io/media/scripts/sidebar.js"></script>
+  
+</div>
+      </div>
+      <div class="site-footer">
+  <div class="container">
+    <div class="site-description">少年心事当拿云，谁念幽寒坐呜呃。</div>
+    
+    <div class="footer-menu">
+      
+      <ul class="give-areward">
+        
+        <li>
+          <h4 class="footer-title">微信支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-weixin_reward.png" alt="微信支付二维码">
+        </li>
+        
+        
+        <li>
+          <h4 class="footer-title">支付宝支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-zhifubao_reward.png" alt="支付宝支付二维码">
+        </li>
+        
+      </ul>
+      
+      
+      
+    </div>
+    
     <div class="footer-info">
-        Made by <a href="https://github.com/yixinyishi" target="_blank">KingJ</a>
+      <ul class="copyright clearfix">
+        <li>Powered by <a href="https://github.com/getgridea/gridea">Gridea</a></li>
+        <li>Theme by <a href="https://github.com/fullstack-kingj/gridea-theme-smartisan">Smartisan</a></li>
+        <li>Designed by <a href="https://jinyunlong.cc">KingJ</a></li>
+      </ul>
+      <ul class="icp clearfix">
+        
+        <li>
+          <a data-v-0e38ecc8="" href="http://beian.miit.gov.cn" target="_blank">冀ICP备20002652号-2</a>
+        </li>
+        
+        
+      </ul>
     </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yixinyishi.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
+  </div>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
 </script>
-
     </div>
-</div>
+  </div>
 </body>
 </html>

@@ -1,227 +1,262 @@
 <html>
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>一款好看的 VSCode 代码主题和图标主题 | 心世当云</title>
+<link rel="shortcut icon" href="https://fullstack-kingj.github.io/favicon.ico?v=1606364175496">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://fullstack-kingj.github.io/styles/main.css">
 
-<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1605084380958">
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://yixinyishi.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
 <!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
+<script src="media/scripts/index.js"></script>
 
 
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            心世当云
-        </div>
+  <div class="main">
+    <div class="main-content">
+      <div class="site-header">
+  <div class="container header-container">
+    <a class="title-container" href="https://fullstack-kingj.github.io">
+      
+      <img class="avatar" src="/media/images/custom-logo.png" alt="">
+      
+      <h1 class="site-title">
+        心世当云
+      </h1>
+    </a>
+    <div class="menu-container">
+      
+      
+      <a href="/" class="menu">
+        首页
+      </a>
+      
+      
+      
+      <a href="/archives" class="menu">
+        归档
+      </a>
+      
+      
+      
+      <a href="/tags" class="menu">
+        标签
+      </a>
+      
+      
+      
+      <a href="/post/about" class="menu">
+        关于
+      </a>
+      
+      
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
-        </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1605084380958" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
+  </div>
+</div>
 
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    一款好看的 VSCode 代码主题和图标主题
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 2020-10-05 ·
-                    </time>
-                    
-                        <a href="https://yixinyishi.github.io/tag/vscode/" class="post-tags">
-                            # VSCode
-                        </a>
-                    
-                </div>
-                <div class="post-content">
-                    <p>自从微软推出 Visual Studio Code 这款编辑器之后，就基本上没用过其他的编辑器和 IDE 了。到底是啥原因这么爱这款编辑器呢？启动速度快、插件市场成熟、主流开发语言基本都支持。这么说吧，在遇到 VS Code 之前我是用 WebStorm 这个的，换了 VS Code 之后简直就是起飞的节奏。</p>
+      <div class="content container clearfix">
+        <div class="panel post-container">
+          <h4 class="panel-title">文章内容</h4>
+          <article class="post post-detail">
+            <h1 class="post-title">
+              一款好看的 VSCode 代码主题和图标主题
+            </h1>
+            <div class="post-info">
+              <time class="post-time">
+                发表于 · 2020-10-05 ·
+              </time>
+              
+              <a href="https://fullstack-kingj.github.io/tag/vscode/" class="post-tag">
+                # VSCode
+              </a>
+              
+            </div>
+
+            
+            <div class="post-content">
+              <p>自从微软推出 Visual Studio Code 这款编辑器之后，就基本上没用过其他的编辑器和 IDE 了。到底是啥原因这么爱这款编辑器呢？启动速度快、插件市场成熟、主流开发语言基本都支持。这么说吧，在遇到 VS Code 之前我是用 WebStorm 这个的，换了 VS Code 之后简直就是起飞的节奏。</p>
 <!-- more -->
 <p>有点扯远了，咳咳... ...</p>
 <p>一直以来基本上都是使用 VS Code 默认的主题和图标主题，不是因为好看，是一直都没怎么注意过这个事儿。直到看到了 <a href="https://marketplace.visualstudio.com/items?itemName=teabyii.ayu">Ayu</a> 这个主题。</p>
 <p>废话不多说，先上图：</p>
-<figure data-type="image" tabindex="1"><img src="https://yixinyishi.github.io/post-images/1601892048635.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://fullstack-kingj.github.io/post-images/1601892048635.png" alt="" loading="lazy"></figure>
 <p>怎么样？！帅吧？！简直不要太帅了。看到这个效果图之后，是真的爱了~</p>
 <h2 id="vs-code-安装插件">VS Code 安装插件</h2>
 <p>好了，接下来说一说怎么安装这个主题吧！其实，在 VS Code 里面只有插件的概念，所谓的主题其实也是一个插件而已。所以，想要安装这个主题就要知道怎么安装插件。</p>
-<figure data-type="image" tabindex="2"><img src="https://yixinyishi.github.io/post-images/1601892056690.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://fullstack-kingj.github.io/post-images/1601892056690.png" alt="" loading="lazy"></figure>
 <p>看到上面这个图里面箭头指着的位置了吗？对，这个菜单就是 VS Code 用来安装插件的。你只需要点击一下就行了，就这么简单 😃</p>
-<figure data-type="image" tabindex="3"><img src="https://yixinyishi.github.io/post-images/1601892062975.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://fullstack-kingj.github.io/post-images/1601892062975.png" alt="" loading="lazy"></figure>
 <p>上面那个菜单点开就是这个样子的。<strong>这里你要注意个问题，就是你的电脑必须是可以成功联网的，不然就啥都看不到啦！</strong></p>
 <p>然后，在上面的搜索栏里面输入【Ayu】，就是这个主题的名字。一般情况下第一个结果就是啦~</p>
-<figure data-type="image" tabindex="4"><img src="https://yixinyishi.github.io/post-images/1601892078240.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://fullstack-kingj.github.io/post-images/1601892078240.png" alt="" loading="lazy"></figure>
 <p>因为我之前已经安装过了，所以就是上面这个样子了。你第一次搜索到看到的和第二个结果是一样的，就是右下角有个【安装】按钮，英文的话是【install】按钮。</p>
 <p>接下来，你只需要点击这个【安装】或者【install】按钮就 OK 啦！</p>
 <h2 id="vs-code-设置颜色主题">VS Code 设置颜色主题</h2>
 <p>这个插件安装成功之后，你在这个插件的主页上可以看到这样的提示：</p>
-<figure data-type="image" tabindex="5"><img src="https://yixinyishi.github.io/post-images/1601892098870.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://fullstack-kingj.github.io/post-images/1601892098870.png" alt="" loading="lazy"></figure>
 <p>然后点击【设置颜色主题】，就可以选择你喜欢的主题啦~</p>
-<figure data-type="image" tabindex="6"><img src="https://yixinyishi.github.io/post-images/1601892085896.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://fullstack-kingj.github.io/post-images/1601892085896.png" alt="" loading="lazy"></figure>
 <p>Ayu 主题提供了三种风格一共 6 种主题，你可以每个都试试，然后选择一个你喜欢的主题。（我选的是【Ayu Mirage】这个主题）</p>
 <p>当然，你也可以通过 VS Code 的菜单来修改颜色主题，具体位置来看下面这张图吧：</p>
-<figure data-type="image" tabindex="7"><img src="https://yixinyishi.github.io/post-images/1601892105474.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://fullstack-kingj.github.io/post-images/1601892105474.png" alt="" loading="lazy"></figure>
 <p>然后，然后你就又看到刚才选择颜色主题的菜单了~</p>
 <h2 id="vs-code-设置文件图标主题">VS Code 设置文件图标主题</h2>
 <p>Ayu 主题不仅提供了 VS Code 的颜色主题，还提供了一套非常漂亮的文件图标主题。这就是为啥我这么爱了~</p>
 <p>具体的做法，还是在 Ayu 这个插件的主页上可以看到这样的提示：</p>
-<figure data-type="image" tabindex="8"><img src="https://yixinyishi.github.io/post-images/1601892111732.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://fullstack-kingj.github.io/post-images/1601892111732.png" alt="" loading="lazy"></figure>
 <p>然后点击【设置文件图标主题】进行设置就好了~</p>
-<figure data-type="image" tabindex="9"><img src="https://yixinyishi.github.io/post-images/1601892116816.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://fullstack-kingj.github.io/post-images/1601892116816.png" alt="" loading="lazy"></figure>
 <p>当然，你也可以通过 VS Code 的菜单来修改文件图标主题，具体位置来看下面这张图吧：</p>
-<figure data-type="image" tabindex="10"><img src="https://yixinyishi.github.io/post-images/1601892124202.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://fullstack-kingj.github.io/post-images/1601892124202.png" alt="" loading="lazy"></figure>
 <blockquote>
 <p>记录每天的工作、反思和成长~</p>
 </blockquote>
 
-                </div>
-            </article>
-        </div>
-
-        
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://yixinyishi.github.io/post/anonymous-function-call/" class="post-title gt-a-link">
-                    匿名函数自调用(IIFE)
-                </a>
             </div>
-        
+          </article>
 
-        
-            <span id="/post/pretty-vscode-theme/" class="leancloud_visitors" data-flag-title="一款好看的 VSCode 代码主题和图标主题">
-                <em class="post-meta-item-text">阅读量 </em>
-                <i class="leancloud-visitors-count">0</i>
-            </span>
-        
-
-        
-
-        
-            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
-
-<style>
-	div#vcomments{
-		width:100%;
-		max-width: 1000px;
-		padding: 2.5%
-	}
-</style>
-
-
-	<div id="vcomments"></div>
-
-<script>
-	new Valine({
-		el: '#vcomments',
-		appId: 'dPUVgDJ7SzoTDVT3QsAdJTO7-gzGzoHsz',
-		appKey: 'VaVsDkSaAKmthyWhmdnW4nCu',
-		avatar: '',
-		pageSize: 5,
-		recordIp: false,
-		placeholder: '来吧~把你的想法写出来吧！',
-		visitor: true,
-	});
-</script>
-
-        
-
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">少年心事当拿云，谁念幽寒坐呜呃。</div>
-    <div class="social-container">
-        
+          <div class="pagination-container">
             
-        
+            <a class="prev-btn" href="https://fullstack-kingj.github.io/post/cmder-better-than-cmd/">上一篇</a>
             
-        
+
             
-        
+            <a class="next-btn" href="https://fullstack-kingj.github.io/post/anonymous-function-call/">下一篇</a>
             
-        
-            
-        
-            
-        
+          </div>
+
+          
+        </div>
+        <div class="sidebar">
+  <div class="panel slidebar-module">
+    <h4 class="panel-title">博主信息</h4>
+    <div class="blogger-panel">
+      <img class="avatar" src="https://fullstack-kingj.github.io/images/avatar.png?v=1606364175496" alt="">
+      <h5 class="author">KingJ</h5>
+      <p class="description">追梦若冷，就用希望取暖。</p>
     </div>
+  </div>
+  
+  
+  <div class="panel slidebar-module offical-SNS">
+    <h4 class="panel-title">社交账号</h4>
+    <ul class="offical-SNS-list">
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/qq.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a id="sns_qq" href="/media/images/custom-sns_qq.png" target="_blank">QQ</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/wechat.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a id="sns_wechat" href="/media/images/custom-sns_wechat.png" target="_blank">微信</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/github.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://github.com/fullstack-kingj" target="_blank">GitHub</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/csdn.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://blog.csdn.net/kingj_fullstack" target="_blank">CSDN</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/juejin.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://juejin.cn/user/2875978145606045" target="_blank">掘金</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/segmentfault.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://segmentfault.com/u/fullstack_kingj" target="_blank">思否</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <div id="pop_dialog" class="pop-dialog">
+    <div class="dialog-mask"></div>
+    <div class="dialog-box">
+      <div class="dialog-title">
+        <h4 class="title"></h4>
+        <a id="btn_close" class="dialog-close"></a>
+      </div>
+      <div class="dialog-content">
+        <img src="#" alt="">
+      </div>
+    </div>
+  </div>
+  <script src="https://fullstack-kingj.github.io/media/scripts/sidebar.js"></script>
+  
+</div>
+      </div>
+      <div class="site-footer">
+  <div class="container">
+    <div class="site-description">少年心事当拿云，谁念幽寒坐呜呃。</div>
+    
+    <div class="footer-menu">
+      
+      <ul class="give-areward">
+        
+        <li>
+          <h4 class="footer-title">微信支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-weixin_reward.png" alt="微信支付二维码">
+        </li>
+        
+        
+        <li>
+          <h4 class="footer-title">支付宝支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-zhifubao_reward.png" alt="支付宝支付二维码">
+        </li>
+        
+      </ul>
+      
+      
+      
+    </div>
+    
     <div class="footer-info">
-        Made by <a href="https://github.com/yixinyishi" target="_blank">KingJ</a>
+      <ul class="copyright clearfix">
+        <li>Powered by <a href="https://github.com/getgridea/gridea">Gridea</a></li>
+        <li>Theme by <a href="https://github.com/fullstack-kingj/gridea-theme-smartisan">Smartisan</a></li>
+        <li>Designed by <a href="https://jinyunlong.cc">KingJ</a></li>
+      </ul>
+      <ul class="icp clearfix">
+        
+        <li>
+          <a data-v-0e38ecc8="" href="http://beian.miit.gov.cn" target="_blank">冀ICP备20002652号-2</a>
+        </li>
+        
+        
+      </ul>
     </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yixinyishi.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
+  </div>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
 </script>
-
     </div>
-</div>
+  </div>
 </body>
 </html>

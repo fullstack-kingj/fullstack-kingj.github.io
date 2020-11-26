@@ -1,236 +1,209 @@
 <html>
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>心世当云</title>
+<link rel="shortcut icon" href="https://fullstack-kingj.github.io/favicon.ico?v=1606364175496">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://fullstack-kingj.github.io/styles/main.css">
 
-<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1605084380958">
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://yixinyishi.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
 <!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
-
+<script src="media/scripts/index.js"></script>
 
 
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
+  <div class="main">
     <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            心世当云
-        </div>
+      <div class="site-header">
+  <div class="container header-container">
+    <a class="title-container" href="https://fullstack-kingj.github.io">
+      
+      <img class="avatar" src="/media/images/custom-logo.png" alt="">
+      
+      <h1 class="site-title">
+        心世当云
+      </h1>
+    </a>
+    <div class="menu-container">
+      
+      
+      <a href="/" class="menu">
+        首页
+      </a>
+      
+      
+      
+      <a href="/archives" class="menu">
+        归档
+      </a>
+      
+      
+      
+      <a href="/tags" class="menu">
+        标签
+      </a>
+      
+      
+      
+      <a href="/post/about" class="menu">
+        关于
+      </a>
+      
+      
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
-        </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1605084380958" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
-
-        <div class="post-container">
-            <div class="post-detail gt-bg-theme-color-first">
-                <article class="gt-post-content">
-                    <h2 class="post-title">归档</h2>
-        
-
-<div class="archives-container">
-    
-        <h2 class="year gt-c-cotent-color-first">2020</h2>
-        
-            
-                <article class="post">
-                    <a href="https://yixinyishi.github.io/post/express-deal-with-post-params/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-10-11&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Express框架如何接收POST方法的请求参数
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://yixinyishi.github.io/post/debouncing-throttling-explained-examples/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-10-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            举例解析 JavaScript 中的防抖和节流
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://yixinyishi.github.io/post/cmder-better-than-cmd/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-10-06&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            用 Cmder 替换自带的命令提示符，让开发更高效
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://yixinyishi.github.io/post/pretty-vscode-theme/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-10-05&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            一款好看的 VSCode 代码主题和图标主题
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://yixinyishi.github.io/post/anonymous-function-call/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-01-08&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            匿名函数自调用(IIFE)
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-        
-            
-        
-    
-        <h2 class="year gt-c-cotent-color-first">2015</h2>
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <article class="post">
-                    <a href="https://yixinyishi.github.io/post/css-coding-standards/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2015-11-27&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            网易前端 CSS 编码规范
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://yixinyishi.github.io/post/ajax-getting-started/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2015-06-16&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            [Mozilla]Ajax快速入门
-                        </div>
-                    </a>
-                </article>
-            
-        
-    
+  </div>
 </div>
+      
 
-        <div class="pagination-container">
+<div class="content container clearfix">
+  
+  <div class="panel archives-container">
+    <h2 class="panel-title">2020</h2>
     
     
-</div>
-
+    <article class="post">
+      <a href="https://fullstack-kingj.github.io/post/express-deal-with-post-params/">
+        <h2 class="post-title">Express框架如何接收POST方法的请求参数</h2>
+        <small>2020-10-11</small>
+      </a>
     </article>
+    
+    
+    
+    <article class="post">
+      <a href="https://fullstack-kingj.github.io/post/debouncing-throttling-explained-examples/">
+        <h2 class="post-title">举例解析 JavaScript 中的防抖和节流</h2>
+        <small>2020-10-06</small>
+      </a>
+    </article>
+    
+    
+    
+    <article class="post">
+      <a href="https://fullstack-kingj.github.io/post/cmder-better-than-cmd/">
+        <h2 class="post-title">用 Cmder 替换自带的命令提示符，让开发更高效</h2>
+        <small>2020-10-06</small>
+      </a>
+    </article>
+    
+    
+    
+    <article class="post">
+      <a href="https://fullstack-kingj.github.io/post/pretty-vscode-theme/">
+        <h2 class="post-title">一款好看的 VSCode 代码主题和图标主题</h2>
+        <small>2020-10-05</small>
+      </a>
+    </article>
+    
+    
+    
+    <article class="post">
+      <a href="https://fullstack-kingj.github.io/post/anonymous-function-call/">
+        <h2 class="post-title">匿名函数自调用(IIFE)</h2>
+        <small>2020-01-08</small>
+      </a>
+    </article>
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <div class="panel archives-container">
+    <h2 class="panel-title">2015</h2>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <article class="post">
+      <a href="https://fullstack-kingj.github.io/post/css-coding-standards/">
+        <h2 class="post-title">网易前端 CSS 编码规范</h2>
+        <small>2015-11-27</small>
+      </a>
+    </article>
+    
+    
+    
+    <article class="post">
+      <a href="https://fullstack-kingj.github.io/post/ajax-getting-started/">
+        <h2 class="post-title">[Mozilla]Ajax快速入门</h2>
+        <small>2015-06-16</small>
+      </a>
+    </article>
+    
+    
+  </div>
+  
+
+  <div class="archives-pagination pagination-container">
+    
+    
+  </div>
 </div>
-</div>
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">少年心事当拿云，谁念幽寒坐呜呃。</div>
-    <div class="social-container">
+      <div class="site-footer">
+  <div class="container">
+    <div class="site-description">少年心事当拿云，谁念幽寒坐呜呃。</div>
+    
+    <div class="footer-menu">
+      
+      <ul class="give-areward">
         
-            
+        <li>
+          <h4 class="footer-title">微信支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-weixin_reward.png" alt="微信支付二维码">
+        </li>
         
-            
         
-            
+        <li>
+          <h4 class="footer-title">支付宝支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-zhifubao_reward.png" alt="支付宝支付二维码">
+        </li>
         
-            
-        
-            
-        
-            
-        
+      </ul>
+      
+      
+      
     </div>
+    
     <div class="footer-info">
-        Made by <a href="https://github.com/yixinyishi" target="_blank">KingJ</a>
+      <ul class="copyright clearfix">
+        <li>Powered by <a href="https://github.com/getgridea/gridea">Gridea</a></li>
+        <li>Theme by <a href="https://github.com/fullstack-kingj/gridea-theme-smartisan">Smartisan</a></li>
+        <li>Designed by <a href="https://jinyunlong.cc">KingJ</a></li>
+      </ul>
+      <ul class="icp clearfix">
+        
+        <li>
+          <a data-v-0e38ecc8="" href="http://beian.miit.gov.cn" target="_blank">冀ICP备20002652号-2</a>
+        </li>
+        
+        
+      </ul>
     </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yixinyishi.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
+  </div>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
 </script>
-
     </div>
-</div>
+  </div>
 </body>
 </html>

@@ -1,116 +1,95 @@
 <html>
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>举例解析 JavaScript 中的防抖和节流 | 心世当云</title>
+<link rel="shortcut icon" href="https://fullstack-kingj.github.io/favicon.ico?v=1606364175496">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://fullstack-kingj.github.io/styles/main.css">
 
-<link rel="shortcut icon" href="https://yixinyishi.github.io/favicon.ico?v=1605084380958">
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://yixinyishi.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
 <!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
+<script src="media/scripts/index.js"></script>
 
 
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            心世当云
-        </div>
+  <div class="main">
+    <div class="main-content">
+      <div class="site-header">
+  <div class="container header-container">
+    <a class="title-container" href="https://fullstack-kingj.github.io">
+      
+      <img class="avatar" src="/media/images/custom-logo.png" alt="">
+      
+      <h1 class="site-title">
+        心世当云
+      </h1>
+    </a>
+    <div class="menu-container">
+      
+      
+      <a href="/" class="menu">
+        首页
+      </a>
+      
+      
+      
+      <a href="/archives" class="menu">
+        归档
+      </a>
+      
+      
+      
+      <a href="/tags" class="menu">
+        标签
+      </a>
+      
+      
+      
+      <a href="/post/about" class="menu">
+        关于
+      </a>
+      
+      
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
-        </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1605084380958" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
+  </div>
+</div>
 
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    举例解析 JavaScript 中的防抖和节流
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 2020-10-06 ·
-                    </time>
-                    
-                        <a href="https://yixinyishi.github.io/tag/debounce/" class="post-tags">
-                            # Debounce
-                        </a>
-                    
-                        <a href="https://yixinyishi.github.io/tag/throttle/" class="post-tags">
-                            # Throttle
-                        </a>
-                    
-                        <a href="https://yixinyishi.github.io/tag/javascript/" class="post-tags">
-                            # JavaScript
-                        </a>
-                    
-                </div>
-                <div class="post-content">
-                    <p>防抖（<strong>Debounce</strong>）和节流（<strong>throttle</strong>）都是用来控制某个函数在一定时间内执行多少次的技巧，两者相似而又不同。</p>
+      <div class="content container clearfix">
+        <div class="panel post-container">
+          <h4 class="panel-title">文章内容</h4>
+          <article class="post post-detail">
+            <h1 class="post-title">
+              举例解析 JavaScript 中的防抖和节流
+            </h1>
+            <div class="post-info">
+              <time class="post-time">
+                发表于 · 2020-10-06 ·
+              </time>
+              
+              <a href="https://fullstack-kingj.github.io/tag/debounce/" class="post-tag">
+                # Debounce
+              </a>
+              
+              <a href="https://fullstack-kingj.github.io/tag/throttle/" class="post-tag">
+                # Throttle
+              </a>
+              
+              <a href="https://fullstack-kingj.github.io/tag/javascript/" class="post-tag">
+                # JavaScript
+              </a>
+              
+            </div>
+
+            
+            <div class="post-content">
+              <p>防抖（<strong>Debounce</strong>）和节流（<strong>throttle</strong>）都是用来控制某个函数在一定时间内执行多少次的技巧，两者相似而又不同。</p>
 <p>当我们给 DOM 绑定事件的时候，加了防抖和节流的函数变得特别有用。为什么呢？因为我们在事件和函数执行之间加了一个控制层。记住，我们是无法控制 DOM 事件触发频率的。</p>
 <!-- more -->
 <p>看下滚动事件的例子：</p>
@@ -126,7 +105,7 @@
 <p>现如今，有一些稍微高端的方式处理事件。我来结合用例介绍下 Debounce、Throttle 和 requestAnimationFrame 吧。</p>
 <h2 id="防抖动debounce">防抖动（Debounce）</h2>
 <p>防抖技术可以把多个顺序地调用合并成一次。</p>
-<figure data-type="image" tabindex="1"><img src="https://yixinyishi.github.io/post-images/1601914785853.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://fullstack-kingj.github.io/post-images/1601914785853.png" alt="" loading="lazy"></figure>
 <p>假想一下，你在电梯中，门快要关了，突然有人准备上来。电梯并没有改变楼层，而是再次打开梯门。电梯延迟了改变楼层的功能，但是优化了资源。</p>
 <p>在顶部按钮上点击或移动鼠标试一下：</p>
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="dcorb" data-slug-hash="KVxGqN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Debounce. Trailing">
@@ -140,7 +119,7 @@
 <p>你会发现，直到事件停止快速执行以后，debounce 事件才会触发相应功能。为何不立即触发呢？那样的话就跟原本的非 debounce 处理无异了。</p>
 <p>直到两次快速调用之间的停顿结束，事件才会再次触发。</p>
 <p>这是带 <code>leading</code> 标记的例子：</p>
-<figure data-type="image" tabindex="2"><img src="https://yixinyishi.github.io/post-images/1601914799140.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://fullstack-kingj.github.io/post-images/1601914799140.png" alt="" loading="lazy"></figure>
 <p>在 underscore.js 中，选项叫 <code>immediate</code> ，而不是 <code>leading</code>：</p>
 <h3 id="debounce-实现">Debounce 实现</h3>
 <p>我首次看到 debounce 的 JavaScript 实现是在 2009 年的 <a href="http://unscriptable.com/2009/03/20/debouncing-javascript-methods/">John Hann 的博文</a>。</p>
@@ -254,88 +233,144 @@ debounced_version.cancel();
 </ul>
 </blockquote>
 
-                </div>
-            </article>
-        </div>
-
-        
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://yixinyishi.github.io/post/cmder-better-than-cmd/" class="post-title gt-a-link">
-                    用 Cmder 替换自带的命令提示符，让开发更高效
-                </a>
             </div>
-        
+          </article>
 
-        
-            <span id="/post/debouncing-throttling-explained-examples/" class="leancloud_visitors" data-flag-title="举例解析 JavaScript 中的防抖和节流">
-                <em class="post-meta-item-text">阅读量 </em>
-                <i class="leancloud-visitors-count">0</i>
-            </span>
-        
-
-        
-
-        
-            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
-
-<style>
-	div#vcomments{
-		width:100%;
-		max-width: 1000px;
-		padding: 2.5%
-	}
-</style>
-
-
-	<div id="vcomments"></div>
-
-<script>
-	new Valine({
-		el: '#vcomments',
-		appId: 'dPUVgDJ7SzoTDVT3QsAdJTO7-gzGzoHsz',
-		appKey: 'VaVsDkSaAKmthyWhmdnW4nCu',
-		avatar: '',
-		pageSize: 5,
-		recordIp: false,
-		placeholder: '来吧~把你的想法写出来吧！',
-		visitor: true,
-	});
-</script>
-
-        
-
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">少年心事当拿云，谁念幽寒坐呜呃。</div>
-    <div class="social-container">
-        
+          <div class="pagination-container">
             
-        
+            <a class="prev-btn" href="https://fullstack-kingj.github.io/post/express-deal-with-post-params/">上一篇</a>
             
-        
+
             
-        
+            <a class="next-btn" href="https://fullstack-kingj.github.io/post/cmder-better-than-cmd/">下一篇</a>
             
-        
-            
-        
-            
-        
+          </div>
+
+          
+        </div>
+        <div class="sidebar">
+  <div class="panel slidebar-module">
+    <h4 class="panel-title">博主信息</h4>
+    <div class="blogger-panel">
+      <img class="avatar" src="https://fullstack-kingj.github.io/images/avatar.png?v=1606364175496" alt="">
+      <h5 class="author">KingJ</h5>
+      <p class="description">追梦若冷，就用希望取暖。</p>
     </div>
+  </div>
+  
+  
+  <div class="panel slidebar-module offical-SNS">
+    <h4 class="panel-title">社交账号</h4>
+    <ul class="offical-SNS-list">
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/qq.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a id="sns_qq" href="/media/images/custom-sns_qq.png" target="_blank">QQ</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/wechat.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a id="sns_wechat" href="/media/images/custom-sns_wechat.png" target="_blank">微信</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/github.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://github.com/fullstack-kingj" target="_blank">GitHub</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/csdn.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://blog.csdn.net/kingj_fullstack" target="_blank">CSDN</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/juejin.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://juejin.cn/user/2875978145606045" target="_blank">掘金</a>
+      </li>
+      
+      
+      <li
+        style="background: url('https://fullstack-kingj.github.io/media/images/segmentfault.png') no-repeat 20px center;background-size: 28px 28px;-webkit-background-size: 28px 28px;">
+        <a href="https://segmentfault.com/u/fullstack_kingj" target="_blank">思否</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <div id="pop_dialog" class="pop-dialog">
+    <div class="dialog-mask"></div>
+    <div class="dialog-box">
+      <div class="dialog-title">
+        <h4 class="title"></h4>
+        <a id="btn_close" class="dialog-close"></a>
+      </div>
+      <div class="dialog-content">
+        <img src="#" alt="">
+      </div>
+    </div>
+  </div>
+  <script src="https://fullstack-kingj.github.io/media/scripts/sidebar.js"></script>
+  
+</div>
+      </div>
+      <div class="site-footer">
+  <div class="container">
+    <div class="site-description">少年心事当拿云，谁念幽寒坐呜呃。</div>
+    
+    <div class="footer-menu">
+      
+      <ul class="give-areward">
+        
+        <li>
+          <h4 class="footer-title">微信支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-weixin_reward.png" alt="微信支付二维码">
+        </li>
+        
+        
+        <li>
+          <h4 class="footer-title">支付宝支付二维码</h4>
+          <img class="footer-img" src="/media/images/custom-zhifubao_reward.png" alt="支付宝支付二维码">
+        </li>
+        
+      </ul>
+      
+      
+      
+    </div>
+    
     <div class="footer-info">
-        Made by <a href="https://github.com/yixinyishi" target="_blank">KingJ</a>
+      <ul class="copyright clearfix">
+        <li>Powered by <a href="https://github.com/getgridea/gridea">Gridea</a></li>
+        <li>Theme by <a href="https://github.com/fullstack-kingj/gridea-theme-smartisan">Smartisan</a></li>
+        <li>Designed by <a href="https://jinyunlong.cc">KingJ</a></li>
+      </ul>
+      <ul class="icp clearfix">
+        
+        <li>
+          <a data-v-0e38ecc8="" href="http://beian.miit.gov.cn" target="_blank">冀ICP备20002652号-2</a>
+        </li>
+        
+        
+      </ul>
     </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://yixinyishi.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
+  </div>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
 </script>
-
     </div>
-</div>
+  </div>
 </body>
 </html>
